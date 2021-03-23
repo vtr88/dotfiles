@@ -1,0 +1,3 @@
+configuration {
+theme: "/home/soth/.config/rofi/theme.rasi";
+}
