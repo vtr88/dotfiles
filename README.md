@@ -1,5 +1,5 @@
-basic openbox debian t dots (no vim no tmux)
+ultraminimal debian/ob setup
 
-debian minimal install
+hehe -> install -> steps
 
-hehe -> install -> cp 
+:)
