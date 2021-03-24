@@ -70,3 +70,39 @@
 <item label="Desktop Preferences" ><action name="Execute"><command><![CDATA[pcmanfm --desktop-pref]]></command></action></item>
 </menu>
 </openbox_pipe_menu>
+<?xml version="1.0" encoding="UTF-8" ?><openbox_pipe_menu xmlns="http://openbox.org/"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://openbox.org/" >
+<menu id="openbox-Development" label="Development"  >
+<item label="Python (v2.7)" icon="/usr/share/pixmaps/python2.7.xpm" ><action name="Execute"><command><![CDATA[evte -e /usr/bin/python2.7]]></command></action></item>
+<item label="Python (v3.9)" icon="/usr/share/pixmaps/python3.9.xpm" ><action name="Execute"><command><![CDATA[evte -e /usr/bin/python3.9]]></command></action></item>
+</menu>
+<menu id="openbox-Graphics" label="Graphics"  >
+<item label="Viewnior" icon="/usr/share/pixmaps/viewnior.xpm" ><action name="Execute"><command><![CDATA[viewnior]]></command></action></item>
+</menu>
+<menu id="openbox-Internet" label="Internet"  >
+<item label="Firefox ESR" ><action name="Execute"><command><![CDATA[/usr/lib/firefox-esr/firefox-esr]]></command></action></item>
+</menu>
+<menu id="openbox-System" label="System"  >
+<item label="File Manager PCManFM" ><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
+<item label="Tint2" ><action name="Execute"><command><![CDATA[tint2]]></command></action></item>
+</menu>
+<menu id="openbox-Multimedia" label="Multimedia"  >
+<item label="PulseAudio Volume Control" ><action name="Execute"><command><![CDATA[pavucontrol]]></command></action></item>
+</menu>
+<menu id="openbox-Utilities" label="Utilities"  >
+<item label="nitrogen" ><action name="Execute"><command><![CDATA[nitrogen]]></command></action></item>
+<item label="Rxvt Color Unicode Terminal" ><action name="Execute"><command><![CDATA[urxvt]]></command></action></item>
+<item label="picom" ><action name="Execute"><command><![CDATA[picom]]></command></action></item>
+<item label="Vim" ><action name="Execute"><command><![CDATA[evte -e vim]]></command></action></item>
+<item label="File Manager PCManFM" ><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
+<item label="Character Map" ><action name="Execute"><command><![CDATA[gucharmap]]></command></action></item>
+<item label="Diodon" ><action name="Execute"><command><![CDATA[diodon]]></command></action></item>
+<item label="Xarchiver" ><action name="Execute"><command><![CDATA[xarchiver]]></command></action></item>
+</menu>
+<menu id="openbox-Settings" label="Settings"  >
+<item label="Advanced Network Configuration" ><action name="Execute"><command><![CDATA[nm-connection-editor]]></command></action></item>
+<item label="Openbox Configuration Manager" icon="/usr/share/pixmaps/obconf.png" ><action name="Execute"><command><![CDATA[obconf]]></command></action></item>
+<item label="Desktop Preferences" ><action name="Execute"><command><![CDATA[pcmanfm --desktop-pref]]></command></action></item>
+<item label="Customize Look and Feel" ><action name="Execute"><command><![CDATA[lxappearance]]></command></action></item>
+<item label="Tint2 Settings" ><action name="Execute"><command><![CDATA[tint2conf]]></command></action></item>
+</menu>
+</openbox_pipe_menu>

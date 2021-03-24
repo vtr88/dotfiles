@@ -1,6 +1,6 @@
 ! URXVT APPEARANCE
 URxvt.font: 			  xft:Roboto Mono:size=9:antialias=true
-URxvt.geometry:                   130x46
+URxvt.geometry:                   134x45
 URxvt.internalBorder:             1
 URxvt.scrollBar:                  false
 URxvt.scrollBar_right:            true

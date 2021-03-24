@@ -1,14 +1,31 @@
-1. net install minimal
-2. connect to internet /etc/interfaces
-3. add sudoers
-4. update sources.list
-5. clone repo
-6. run install
-7. change grub config, update-grub
-8. enable lightdm, change lightdm config
-9. copy dotfiles
-0. restart, comment interface, use nm-applet, get to work
+#1. net install minimal
+#2. connect to internet /etc/interfaces
+#--
+#3. add sudoers
+#4. update sources.list
+#5. clone repo
+#6. run install
+#7. change grub config, update-grub
+#8. enable lightdm, change lightdm config
+#9. copy dotfiles
+#0. restart, comment interface, use nm-applet, get to work
 
-on post:
+#on post:
+#apt --assume-yes install sudo git
+sudo cp sudoers /etc/
+
+sudo cp sources.list /etc/apt/
+sudo cp grub /etc/default/
+#update grub
+
+sudo cp lightdm.conf /etc/lightdm/
+sudo cp lightdm-gtk-greeter.conf /etc/lightdm/
+sudo systemctl enable lightdm
+
+cp -R .dotfiles ~/
+cp .Xresources ~/
+cp wall.jpg ~/
+cp .vimrc ~/
+
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

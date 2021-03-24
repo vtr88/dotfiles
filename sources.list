@@ -1,9 +1,3 @@
-# 
-
-# deb cdrom:[Debian GNU/Linux 10.8.0 _Buster_ - Official amd64 NETINST 20210206-10:34]/ testing main
-
-#deb cdrom:[Debian GNU/Linux 10.8.0 _Buster_ - Official amd64 NETINST 20210206-10:34]/ testing main
-
 deb http://ftp.br.debian.org/debian/ testing main contrib non-free
 deb-src http://ftp.br.debian.org/debian/ testing main contrib non-free
 

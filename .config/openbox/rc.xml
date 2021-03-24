@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Base16-Gruvbox-Dark</name>
+    <name>Gruvbox</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -57,57 +57,57 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>sans</name>
+      <name>Roboto</name>
       <size>8</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>sans</name>
+      <name>Roboto</name>
       <size>8</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>sans</name>
+      <name>Roboto</name>
       <size>9</size>
       <!-- font size in points -->
-      <weight>normal</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>sans</name>
+      <name>Roboto</name>
       <size>9</size>
       <!-- font size in points -->
-      <weight>normal</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>sans</name>
+      <name>Roboto</name>
       <size>9</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>sans</name>
+      <name>Roboto</name>
       <size>9</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
   </theme>
@@ -342,15 +342,15 @@
         <command>scrot</command>
       </action>
     </keybind>
-    <keybind key="A-2">
-	    <action name="Execute">
-		    <command>firefox-esr</command>
-	    </action>
+    <keybind key="A-3">
+      <action name="Execute">
+        <command>firefox-esr</command>
+      </action>
     </keybind>
-     <keybind key="A-3">
-	    <action name="Execute">
-		    <command>urxvt</command>
-	    </action>
+    <keybind key="A-2">
+      <action name="Execute">
+        <command>urxvt</command>
+      </action>
     </keybind>
   </keyboard>
   <mouse>
@@ -692,7 +692,6 @@
        just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <!-- system menu files on Debian systems -->
-    <file>/var/lib/openbox/debian-menu.xml</file>
     <file>menu.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the
@@ -814,19 +813,18 @@
 
   # end of the example
     -->
-
-  <application class="URxvt" type="normal">
+    <application class="URxvt" type="normal">
       <decor>no</decor>
       <desktop>1</desktop>
-  </application>
-  <application class="Firefox-esr" type="normal">
+    </application>
+    <application class="Firefox-esr" type="normal">
       <decor>no</decor>
       <desktop>2</desktop>
-      <maximized>true</maximized>
+      <maximized>false</maximized>
       <size>
-	      <width>98%</width>
-	      <height>98%</height>
+        <width>99%</width>
+        <height>99%</height>
       </size>
-  </application>
+    </application>
   </applications>
 </openbox_config>

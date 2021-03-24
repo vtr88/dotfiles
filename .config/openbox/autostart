@@ -22,7 +22,7 @@
 pcmanfm -d &
 
 # background 
-#feh --bg-scale ~/Imagens/purple.jpg &
+#feh --bg-scale ~/wall.jpg &
 nitrogen --restore &
 
 # configs de energia
@@ -35,7 +35,7 @@ dunst -config ~/.config/dunst/dunstrc &
 picom -b
 
 # xsettings
-#xsettingsd &
+xsettingsd &
 
 # no lugar do clipit
 diodon &
