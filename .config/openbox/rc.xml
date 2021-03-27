@@ -181,7 +181,7 @@
     <!-- Keybindings for desktop switching -->
     <keybind key="A-1">
       <action name="Execute">
-        <command>rofi -show run</command>
+        <command>rofi -show drun -lines 10 -opacity "85" -eh 1 -width 25 -padding 20</command>
       </action>
     </keybind>
     <keybind key="C-A-Left">
@@ -350,6 +350,11 @@
     <keybind key="A-2">
       <action name="Execute">
         <command>urxvt</command>
+      </action>
+    </keybind>
+	<keybind key="W-l">
+      <action name="Execute">
+	      <command>/usr/bin/i3lock-fancy -f Roboto</command>
       </action>
     </keybind>
   </keyboard>

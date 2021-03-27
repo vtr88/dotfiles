@@ -46,5 +46,8 @@ volumeicon &
 # network manager
 nm-applet &
 
+# redshift
+redshift &
+
 # painel
 tint2 &
