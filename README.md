@@ -1,5 +1,3 @@
-ultraminimal debian/ob setup
+(https://raw.githubusercontent.com/vtr88/dotfiles/master/ss.png)
 
-hehe -> install -> steps
-
-:)
+ultraminimal debian/ob setup :)
