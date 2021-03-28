@@ -1,5 +1,5 @@
 #1. net install minimal
-#2. connect to internet /etc/interfaces
+#2. connect to internet /etc/network/interfaces
 #--
 #3. add sudoers
 #4. update sources.list
@@ -10,20 +10,11 @@
 #9. copy dotfiles
 #0. restart, comment interface, use nm-applet, get to work
 
-#on post:
-#sudo cp sudoers /etc/
-#sudo cp sources.list /etc/apt/
-#sudo cp grub /etc/default/
-#sudo cp lightdm.conf /etc/lightdm/
-#sudo cp lightdm-gtk-greeter.conf /etc/lightdm/
-#sudo systemctl enable lightdm
-
 #cp -R .config ~/
 #cp .Xresources ~/
 #cp wall.jpg ~/
 #cp .vimrc ~/
+#cp .tmux.conf ~/
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-#sudo update-grub

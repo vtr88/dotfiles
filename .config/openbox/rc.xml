@@ -349,7 +349,7 @@
     </keybind>
     <keybind key="A-2">
       <action name="Execute">
-        <command>urxvt</command>
+        <command>urxvt -e tmux</command>
       </action>
     </keybind>
 	<keybind key="W-l">
