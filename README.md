@@ -1,3 +1,3 @@
-(https://raw.githubusercontent.com/vtr88/dotfiles/master/ss.png)
+![scrot](https://github.com/vtr88/dotfiles/blob/master/ss.png?raw=true)
 
 ultraminimal debian/ob setup :)
