@@ -354,7 +354,7 @@
     </keybind>
 	<keybind key="W-l">
       <action name="Execute">
-	      <command>/usr/bin/i3lock-fancy -f Roboto</command>
+	      <command>slock /usr/sbin/pm-suspend-hybrid</command>
       </action>
     </keybind>
   </keyboard>
