@@ -1,50 +1,67 @@
-! URXVT APPEARANCE
-URxvt.font: 			  xft:Roboto Mono:size=9:antialias=true
-URxvt.geometry:                   134x45
+! URxvt.font: 			          xft:Roboto Mono:size=12
+URxvt.font:                       xft:Fira Code Retina:size=11
+! URxvt.geometry:                   150x38
 URxvt.internalBorder:             1
+! Force fixed window size - prevent any automatic resizing
+URxvt.hold:                       false
+URxvt.saveLines:                  1000
 URxvt.scrollBar:                  false
-URxvt.scrollBar_right:            true
+URxvt.scrollBar_right:            false
 URxvt.scrollBar_floating:         false
 URxvt.scrollstyle:                plain
 ! Uncomment if to much font spacing
-URxvt.letterSpace: -2
-
-! URXVT EXTENSIONS
-URxvt.perl-ext-common:            default,tabbedex,url-select
+! URxvt.letterSpace: -2
 URxvt.keysym.Control-Shift-C:     eval:selection_to_clipboard
 URxvt.keysym.Control-Shift-V:     eval:paste_clipboard
+URxvt.iso14755:                   false
+URxvt.iso14755_52:                false
 URxvt.keysym.Control-Up:          eval:scroll_up 1
 URxvt.keysym.Control-Down:        eval:scroll_down 1
 URxvt.keysym.Control-Home:        eval:scroll_to_top
 URxvt.keysym.Control-End:         eval:scroll_to_bottom
+URxvt.depth:                      32;
+URxvt.background:                 rgba:2800/2800/2800/dddd
+URxvt*perl-lib:                   /home/soth/.config/urxvtext
+URxvt.perl-ext-common:            default,matcher
+! Disable all automatic font plugins - they cause window resizing
+! URxvt.perl-ext-common:            default,matcher,font-zoom,selection_to_clipboard
+! Manual font zoom using tmux only - no urxvt plugins
+! URxvt.keysym.Control-equal:       font-zoom:bigger
+! URxvt.keysym.Control-plus:        font-zoom:bigger
+! URxvt.keysym.Control-minus:       font-zoom:smaller
+! URxvt.keysym.Control-0:           font-zoom:reset
+! URxvt.keysym.Control-Shift-equal: font-zoom:bigger
+! URxvt.keysym.Control-underscore:  font-zoom:smaller
 
-! hard contrast: *background: #1d2021
-URxvt.depth: 32;
-*background: [85]#282828
-! soft contrast: *background: #32302f
+URxvt*perl-ext:                  font-size
+URxvt.keysym.C-plus:             font-size:bigger-static
+URxvt.keysym.C-minus:            font-size:smaller-static
+URxvt.keysym.C-0:                font-size:reset
+
 *foreground: #ebdbb2
-! Black + DarkGrey
 *color0:  #282828
 *color8:  #928374
-! DarkRed + Red
 *color1:  #cc241d
 *color9:  #fb4934
-! DarkGreen + Green
 *color2:  #98971a
 *color10: #b8bb26
-! DarkYellow + Yellow
 *color3:  #d79921
 *color11: #fabd2f
-! DarkBlue + Blue
 *color4:  #458588
 *color12: #83a598
-! DarkMagenta + Magenta
 *color5:  #b16286
 *color13: #d3869b
-! DarkCyan + Cyan
 *color6:  #689d6a
 *color14: #8ec07c
-! LightGrey + White
 *color7:  #a89984
 *color15: #ebdbb2
 
+NetHack*autofocus: True
+NetHack*message_lines: 8
+NetHack*slow: True
+NetHack*font: nh10
+NetHack*display_file*font: nh10
+NetHack*map*font: nh10
+NetHack*text*font: nh10
+NetHack*menu*font: nh10
+NetHack*tombstone*font: nh10

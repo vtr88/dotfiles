@@ -1,1 +1,52 @@
-sudo apt install --no-install-recommends acpi-support ca-certificates firefox-esr picom dosfstools dunst ffmpeg file firmware-intel-sound firmware-iwlwifi fonts-liberation2 git gucharmap gvfs gvfs-backends  gzip highlight nitrogen tint2 intel-microcode less curl libmtp-runtime libnotify-bin lightdm lightdm-gtk-greeter lxappearance lxmenu-data man-db mtp-tools ntfs-3g openbox openbox-menu obconf p7zip-full pavucontrol pcmanfm policykit-1-gnome pulseaudio rxvt-unicode sudo tlp viewnior wget network-manager x11-xserver-utils xarchiver xdg-user-dirs xsel xserver-xorg-core xserver-xorg-input-kbd xserver-xorg-input-libinput xserver-xorg-input-mouse xserver-xorg-input-synaptics xserver-xorg-video-intel xsettingsd volumeicon-alsa diodon xfce4-power-manager network-manager-gnome papirus-icon-theme rofi fonts-roboto xfce4-power-manager-plugins fonts-roboto-unhinted vim xfce4-power-manager-data screenfetch obsession firmware-atheros gtk2-engines universal-ctags bc firmware-linux-nonfree gnome-icon-theme librsvg2-common tmux slock pm-utils
+#!/usr/bin/env bash
+set -eu
+
+sudo apt update
+sudo apt install --no-install-recommends \
+    alacritty \
+    bash-completion \
+    ca-certificates \
+    cmatrix \
+    curl \
+    diodon \
+    dunst \
+    firefox-esr \
+    fonts-firacode \
+    fonts-roboto \
+    git \
+    irssi \
+    isync \
+    keynav \
+    lbdb \
+    lightdm \
+    lightdm-gtk-greeter \
+    neomutt \
+    neovim \
+    network-manager-gnome \
+    newsboat \
+    nethack-console \
+    nethack-x11 \
+    nitrogen \
+    openbox \
+    papirus-icon-theme \
+    pcmanfm \
+    picom \
+    policykit-1-gnome \
+    python3-bs4 \
+    python3-requests \
+    rofi \
+    rxvt-unicode \
+    taskwarrior \
+    tint2 \
+    tmux \
+    urlscan \
+    volumeicon-alsa \
+    wireguard-tools \
+    x11-xserver-utils \
+    xarchiver \
+    xboard \
+    xdotool \
+    xfce4-power-manager \
+    xsettingsd
+
+printf '\nDotfiles are managed from this repository. Copy or symlink the tracked files into $HOME as needed.\n'

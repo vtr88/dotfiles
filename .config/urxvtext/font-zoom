@@ -1,0 +1,46 @@
+#!/usr/bin/env perl
+# Simple font zoom plugin that ONLY changes font size, never window size
+# Copyright (c) 2024 - Fixed font zoom plugin
+
+my $current_size = 11;  # Default font size from .Xresources
+my $step_size = 1;
+my $min_size = 6;
+my $max_size = 24;
+
+sub on_start {
+    my ($self) = @_;
+    # Extract current font size from the font string
+    my $font = $self->resource('font') || 'xft:Fira Code Retina:size=11';
+    if ($font =~ /size=(\d+(?:\.\d+)?)/) {
+        $current_size = $1;
+    }
+    return ();
+}
+
+sub on_action {
+    my ($self, $action) = @_;
+    
+    if ($action eq 'bigger') {
+        $current_size += $step_size;
+        $current_size = $max_size if $current_size > $max_size;
+        set_font_size($self, $current_size);
+    }
+    elsif ($action eq 'smaller') {
+        $current_size -= $step_size;
+        $current_size = $min_size if $current_size < $min_size;
+        set_font_size($self, $current_size);
+    }
+    elsif ($action eq 'reset') {
+        $current_size = 11;  # Reset to default
+        set_font_size($self, $current_size);
+    }
+    
+    return ();
+}
+
+sub set_font_size {
+    my ($self, $size) = @_;
+    # Only change the font size, never touch window geometry
+    my $font = "xft:Fira Code Retina:size=$size";
+    $self->cmd_parse("\033]710;$font\007");
+}

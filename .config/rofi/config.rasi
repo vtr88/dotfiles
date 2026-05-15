@@ -1,3 +1,4 @@
 configuration {
-theme: "/home/soth/.config/rofi/theme.rasi";
+ modi: "window,drun,ssh,combi";
 }
+@theme "theme.rasi"

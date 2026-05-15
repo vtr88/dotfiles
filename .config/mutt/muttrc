@@ -1,0 +1,175 @@
+set realname = "Vitor H. E. Souza"
+set from = "user@example.invalid"
+set use_from = yes
+set envelope_from = yes
+
+set folder = "/home/soth/Mail/contato"
+set spoolfile = "+Inbox"
+
+set mail_check = 60
+
+###############
+# Pager settings
+#
+ignore *
+unignore From Message-ID Date To Cc Bcc Subject
+set pager_stop
+unset markers
+#bind index G imap-fetch-mail
+#macro index G "mbsync -a\n"
+macro index,pager G "!mbsync -c /home/soth/.config/mutt/.mbsyncrc contato\n" "Sync mail"
+
+set pgp_use_gpg_agent = yes
+set pgp_replyencrypt = yes
+set pgp_autosign     = yes
+set pgp_sign_as      = 0F0EAB753965CA662AF5A307A999FC79A54C8A4A
+
+# Prefer plain text to html.
+# However, for brain dead clients that bundle attachments inside a
+# multipart/alternative, prefer that alternative.
+alternative_order multipart/mixed multipart/related text/plain
+
+# Consult mime.types for determining types of these attachments
+mime_lookup application/octet-stream
+
+# This requires a ~/.mailcap entry with the copiousoutput flag, such as:
+# text/html; lynx -dump -width ${COLUMNS:-80} %s; nametemplate=%s.html; copiousoutput
+auto_view text/html
+set mailcap_path = "/home/soth/.config/mutt/.mailcap"
+
+###############
+# Index settings
+#
+set quit = ask-yes
+set sort = reverse-threads
+set sort_aux = date-received
+#set signature = ~/.sig
+
+###############
+# Message composition settings
+#
+set editor = "nvim"
+set mime_type_query_command = "xdg-mime query filetype"
+
+# msmtp is a solid SMTP client.
+# mutt also has built-in SMTP, or you can use an MTA like exim4 or postfix.
+#set sendmail = "/usr/bin/msmtp"
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+set smtp_url = "smtps://user@REDACTED_HOST:465/"
+set smtp_pass = "REDACTED"
+
+# Where to save copies of outgoing mail
+set record = '+Sent'
+
+# lbdb is a versatile contact query tool.
+# Invoke via ctrl-t in an address prompt
+set query_command = "/usr/bin/lbdbq"
+
+color attachment  color109 default
+color bold        color229 default
+color error       color167 default
+color hdrdefault  color246 default
+color indicator   color223 color237
+color markers     color243 default
+#color normal      color223 default
+color normal      default default
+color quoted      color250 default
+color quoted1     color108 default
+color quoted2     color250 default
+color quoted3     color108 default
+color quoted4     color250 default
+color quoted5     color108 default
+color search      default color208
+color signature   color108 default
+#color status      color141 color236
+color status      color141 default
+color tilde       color243 default
+color tree        color142 default
+color underline   color223 color239
+
+color sidebar_divider    color250 default
+color sidebar_new        color142 default
+
+#color index color142 default ~N
+#color index color108 default ~O
+#color index color109 default ~P
+#color index color214 default ~F
+#color index color175 default ~Q
+#color index color167 default ~=
+#color index default color223 ~T
+#color index default color167 ~D
+
+color index color142 default ~N
+color index color108 default ~O
+color index color109 default ~P
+color index color214 default ~F
+color index color175 default ~Q
+color index color167 default ~=
+color index default default ~T
+color index default default ~D
+
+#color header color214 default "^(To:|From:)"
+#color header color142 default "^Subject:"
+#color header color108 default "^X-Spam-Status:"
+#color header color108 default "^Received:"
+
+color header color214 default "^(To:|From:)"
+color header color142 default "^Subject:"
+color header color108 default "^X-Spam-Status:"
+color header color108 default "^Received:"
+
+
+color body color142 default "[a-z]{3,255}://[[:graph:]]*"
+color body color142 default "([-[:alnum:]]+\\.)+([0-9]{1,3}|[-[:alpha:]]+)/[[:graph:]]*"
+color body color142 default "([-[:alnum:]]+\\.){2,255}[-[:alpha:]]{2,10}"
+
+color body color142 default "((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])"
+color body color142 default "(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))"
+
+color body color208 default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body color208 default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+color body default color214 "[;:]-*[)>(<lt;|]"
+color body color229 default "\\*[- A-Za-z]+\\*"
+
+color body color214 default "^-.*PGP.*-*"
+color body color142 default "^gpg: Good signature from"
+color body color167 default "^gpg: Can't.*$"
+color body color214 default "^gpg: WARNING:.*$"
+color body color167 default "^gpg: BAD signature from"
+color body color167 default "^gpg: Note: This key has expired!"
+color body color214 default "^gpg: There is no indication that the signature belongs to the owner."
+color body color214 default "^gpg: can't handle these multiple signatures"
+color body color214 default "^gpg: signature verification suppressed"
+color body color214 default "^gpg: invalid node with packet of type"
+
+color body color142 default "^Good signature from:"
+color body color167 default "^.?BAD.? signature from:"
+color body color142 default "^Verification successful"
+color body color167 default "^Verification [^s][^[:space:]]*$"
+
+color compose header            color223 default
+color compose security_encrypt  color175 default
+color compose security_sign     color109 default
+color compose security_both     color142 default
+color compose security_none     color208 default
+
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+#source ~/.config/mutt/gruvbox/colors-gruvbox-shuber.muttrc
+
+#set sidebar_visible = yes
+#set sidebar_width = 20
+#set sidebar_short_path = yes
+#set sidebar_next_new_wrap = yes
+#set mail_check_stats
+#set sidebar_format = '%D%?F? [%F]?%* %?N?%N/? %?S?%S?'
+#bind index,pager \Ck sidebar-prev
+#bind index,pager \Cj sidebar-next
+#bind index,pager \Co sidebar-open
+#bind index,pager \Cp sidebar-prev-new
+#bind index,pager \Cn sidebar-next-new
+#bind index,pager B sidebar-toggle-visible

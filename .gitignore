@@ -1,0 +1,42 @@
+# Runtime/cache state
+.cache/
+*.log
+*.sqlite
+*.sqlite-*
+*.db
+*.tdb
+*.lock
+*.bak
+*.backup*
+*.old
+
+# Secrets and machine credentials
+.ssh/
+.gnupg/
+*.gpg
+*.key
+*.pem
+*cookie*
+*Cookie*
+hosts.yml
+provider-config.yaml
+account.gpg
+.authinfo*
+
+# Application state that should not be versioned here
+.config/pulse/
+.config/Code*/
+.config/chromium/
+.config/discord/
+.config/joplin*/
+.config/transmission/
+.config/VirtualBox/
+.config/wireshark/recent*
+.config/.task/*.data
+.config/.task/*.tar.gz
+.config/tint2/result.txt
+
+# Editor/session noise
+.viminfo
+.local/state/
+.local/share/recently-used.xbel

@@ -1,0 +1,22 @@
+IMAPAccount contato 
+Host REDACTED_HOST
+User user@example.invalid
+Pass REDACTED
+TLSType IMAPS
+#SSLType IMAPS
+
+IMAPStore    contato-remote
+Account    contato
+
+MaildirStore contato-local
+Path       /home/soth/Mail/contato/
+Inbox      /home/soth/Mail/contato/Inbox
+SubFolders Verbatim
+
+Channel    contato
+Far        :contato-remote:
+Near       :contato-local:
+Patterns   *
+Create     Both
+Expunge    Both 
+SyncState  *

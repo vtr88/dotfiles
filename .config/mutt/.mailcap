@@ -1,0 +1,578 @@
+###############################################################################
+#
+#  MIME media types and programs that process those types
+#
+#  Much of this file is generated automatically by the program "update-mime".
+#  Please see the "update-mime" man page for more information.
+#
+#  Users can add their own rules if they wish by creating a ".mailcap"
+#  file in their home directory.  Entries included there will take
+#  precedence over those listed here.
+#
+###############################################################################
+
+
+###############################################################################
+#
+#  User section follows:  Any entries included in this section will take
+#  precedence over those created by "update-mime".  DO NOT CHANGE the
+#  "User Section Begins" and "User Section Ends" lines, or anything outside
+#  of this section!
+#
+
+# ----- User Section Begins ----- #
+# -----  User Section Ends  ----- #
+
+###############################################################################
+
+text/plain; less %s; needsterminal
+application/x-troff-man; /usr/bin/man -X100 -l %s; test=test -n "$DISPLAY" -a -e /usr/bin/gxditview; description=Man page
+text/troff; /usr/bin/man -X100 -l %s; test=test -n "$DISPLAY" -a -e /usr/bin/gxditview; description=Man page
+application/x-troff-man; /usr/bin/man -l %s; needsterminal; description=Man page
+text/troff; /usr/bin/man -l %s; needsterminal; description=Man page
+text/html; /usr/bin/sensible-browser %s; description=HTML Text; nametemplate=%s.html
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2txt %s - ; copiousoutput; description=Office Open XML Document
+text/html; /usr/bin/firefox-esr %s; description=HTML Text; test=test -n "$DISPLAY";  nametemplate=%s.html
+text/xml; /usr/bin/firefox-esr %s; description=XML Text; test=test -n "$DISPLAY";  nametemplate=%s.xml
+application/x-troff-man; /usr/bin/nroff -mandoc -Tutf8; copiousoutput; print=/usr/bin/nroff -mandoc -Tutf8 | print text/plain:-
+text/troff; /usr/bin/nroff -mandoc -Tutf8; copiousoutput; print=/usr/bin/nroff -mandoc -Tutf8 | print text/plain:-
+audio/mpeg; mpg123 -q %s; needsterminal
+application/mxf; /usr/bin/mplayer %s; description="MXF video"
+application/x-netshow-channel; /usr/bin/mplayer %s; description="Windows Media Station file"
+application/ogg; /usr/bin/mplayer %s; description="Ogg multimedia file"
+application/ram; /usr/bin/mplayer %s; description="RealMedia Metafile"
+application/vnd.rn-realmedia; /usr/bin/mplayer %s; description="RealMedia document"
+application/x-shockwave-flash; /usr/bin/mplayer %s; description="Shockwave Flash file"
+application/smil; /usr/bin/mplayer %s; description="SMIL document"
+audio/ac3; /usr/bin/mplayer %s; description="Dolby Digital audio"
+audio/x-adpcm; /usr/bin/mplayer %s; description="PCM audio"
+audio/x-aiff; /usr/bin/mplayer %s; description="AIFF/Amiga/Mac audio"
+audio/AMR; /usr/bin/mplayer %s; description="AMR audio"
+audio/AMR-WB; /usr/bin/mplayer %s; description="AMR-WB audio"
+audio/x-ape; /usr/bin/mplayer %s; description="Monkey's audio"
+audio/basic; /usr/bin/mplayer %s; description="ULAW (Sun) audio"
+audio/flac; /usr/bin/mplayer %s; description="FLAC audio"
+audio/x-flac; /usr/bin/mplayer %s; description="FLAC audio"
+audio/x-flac+ogg; /usr/bin/mplayer %s; description="Ogg FLAC audio"
+audio/x-m4b; /usr/bin/mplayer %s; description="MPEG-4 audio book"
+audio/x-matroska; /usr/bin/mplayer %s; description="Matroska audio"
+audio/mp2; /usr/bin/mplayer %s; description="MP2 audio"
+audio/mp4; /usr/bin/mplayer %s; description="MPEG-4 audio"
+audio/mpeg; /usr/bin/mplayer %s; description="MP3 audio"
+audio/x-mpegurl; /usr/bin/mplayer %s; description="MP3 audio (streamed)"
+audio/x-ms-asx; /usr/bin/mplayer %s; description="Microsoft ASX playlist"
+audio/x-ms-wma; /usr/bin/mplayer %s; description="Windows Media audio"
+audio/x-musepack; /usr/bin/mplayer %s; description="Musepack audio"
+audio/ogg; /usr/bin/mplayer %s; description="Ogg Audio"
+audio/vnd.rn-realaudio; /usr/bin/mplayer %s; description="RealAudio document"
+audio/x-scpls; /usr/bin/mplayer %s; description="MP3 ShoutCast playlist"
+audio/x-voc; /usr/bin/mplayer %s; description="VOC audio"
+audio/x-vorbis+ogg; /usr/bin/mplayer %s; description="Ogg Vorbis audio"
+audio/x-wav; /usr/bin/mplayer %s; description="WavPack audio"
+audio/x-wavpack; /usr/bin/mplayer %s; description="WavPack audio"
+video/3gpp; /usr/bin/mplayer %s; description="3GPP multimedia file"; test=test -n "$DISPLAY"
+video/3gpp2; /usr/bin/mplayer %s; description="3GPP2 multimedia file"; test=test -n "$DISPLAY"
+video/dv; /usr/bin/mplayer %s; description="DV video"; test=test -n "$DISPLAY"
+video/x-flic; /usr/bin/mplayer %s; description="FLIC animation"; test=test -n "$DISPLAY"
+video/x-flv; /usr/bin/mplayer %s; description="Flash video"; test=test -n "$DISPLAY"
+video/x-matroska; /usr/bin/mplayer %s; description="Matroska video"; test=test -n "$DISPLAY"
+video/mp2t; /usr/bin/mplayer %s; description="MPEG-2 transport stream"; test=test -n "$DISPLAY"
+video/mp4; /usr/bin/mplayer %s; description="MPEG-4 video"; test=test -n "$DISPLAY"
+video/mpeg; /usr/bin/mplayer %s; description="MPEG video"; test=test -n "$DISPLAY"
+video/x-ms-asf; /usr/bin/mplayer %s; description="Microsoft ASF video"; test=test -n "$DISPLAY"
+video/x-ms-wmv; /usr/bin/mplayer %s; description="Windows Media video"; test=test -n "$DISPLAY"
+video/x-msvideo; /usr/bin/mplayer %s; description="AVI video"; test=test -n "$DISPLAY"
+video/x-nsv; /usr/bin/mplayer %s; description="NullSoft video"; test=test -n "$DISPLAY"
+video/ogg; /usr/bin/mplayer %s; description="Ogg Video"; test=test -n "$DISPLAY"
+video/x-ogm+ogg; /usr/bin/mplayer %s; description="OGM video"; test=test -n "$DISPLAY"
+video/quicktime; /usr/bin/mplayer %s; description="QuickTime video"; test=test -n "$DISPLAY"
+video/vnd.rn-realvideo; /usr/bin/mplayer %s; description="RealVideo document"; test=test -n "$DISPLAY"
+video/x-theora+ogg; /usr/bin/mplayer %s; description="Ogg Theora video"; test=test -n "$DISPLAY"
+video/webm; /usr/bin/mplayer %s; description="WebM video"; test=test -n "$DISPLAY"
+application/mbox; mutt -Rf %s; edit=mutt -f %s; needsterminal
+audio/basic; /usr/bin/play -t au %s
+audio/x-aiff; /usr/bin/play -t aiff %s
+audio/x-gsm; /usr/bin/play -t gsm %s
+audio/x-wav; /usr/bin/play -t wav %s
+image/gif; sxiv %s; test=test -n "$DISPLAY"
+image/jpeg; sxiv %s; test=test -n "$DISPLAY"
+image/png; sxiv %s; test=test -n "$DISPLAY"
+image/tiff; sxiv %s; test=test -n "$DISPLAY"
+image/x-ms-bmp; sxiv %s; test=test -n "$DISPLAY"
+image/x-portable-anymap; sxiv %s; test=test -n "$DISPLAY"
+image/x-portable-bitmap; sxiv %s; test=test -n "$DISPLAY"
+image/x-portable-graymap; sxiv %s; test=test -n "$DISPLAY"
+image/x-portable-pixmap; sxiv %s; test=test -n "$DISPLAY"
+image/x-xpixmap; sxiv %s; test=test -n "$DISPLAY"
+application/x-dvi; /usr/bin/xdvi %s; description=TeX DVI; test=test -n "$DISPLAY"; nametemplate=%s.dvi
+text/plain; more %s; needsterminal
+application/ogg; ogg123 %s; description="Ogg Vorbis multimedia format"
+audio/ogg; ogg123 %s; description="Ogg Vorbis multimedia format"
+application/x-rar; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="RAR Archive"; test=test -n "$DISPLAY" && test -e /usr/bin/unrar
+application/rar; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="RAR Archive"; test=test -n "$DISPLAY" && test -e /usr/bin/unrar
+application/x-arj; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="ARJ Archive"; test=test -n "$DISPLAY" && test -e /usr/bin/arj
+application/arj; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="ARJ Archive"; test=test -n "$DISPLAY" && test -e /usr/bin/arj
+application/x-zip; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="ZIP Archive"; test=test -n "$DISPLAY" && test -e /usr/bin/unzip
+application/zip; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="ZIP Archive"; test=test -n "$DISPLAY" && test -e /usr/bin/unzip
+application/x-redhat-package-manager; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="RPM Archive"; test=test -n "$DISPLAY" && test -f /usr/bin/rpm
+application/x-tar; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="TAR Archive"; test=test -n "$DISPLAY"
+application/x-gtar; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="TAR Archive"; test=test -n "$DISPLAY"
+application/x-ustar; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="TAR Archive"; test=test -n "$DISPLAY"
+application/x-gzip; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="GZ compressed file"; test=test -n "$DISPLAY"
+application/x-bzip2; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="BZIP2 compressed file"; test=test -n "$DISPLAY"
+application/x-lzma; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="LZMA compressed file"; test=test -n "$DISPLAY"
+application/x-xz; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="XZ compressed file"; test=test -n "$DISPLAY"
+application/x-xz-compressed-tar; /usr/bin/xarchiver -- %s; edit=/usr/bin/xarchiver -- %s; description="XZ compressed tar file"; test=test -n "$DISPLAY"
+text/html; /usr/bin/chromium %s; test=test -n "$DISPLAY"
+text/xml; /usr/bin/chromium %s; test=test -n "$DISPLAY"
+application/xhtml_xml; /usr/bin/chromium %s; test=test -n "$DISPLAY"
+application/x-mimearchive; /usr/bin/chromium %s; test=test -n "$DISPLAY"
+x-scheme-handler/http; /usr/bin/chromium %s; test=test -n "$DISPLAY"
+x-scheme-handler/https; /usr/bin/chromium %s; test=test -n "$DISPLAY"
+x-scheme-handler/vscode-insiders; /usr/share/code-insiders/code-insiders --open-url %s; test=test -n "$DISPLAY"
+application/x-code-insiders-workspace; /usr/share/code-insiders/code-insiders %s; test=test -n "$DISPLAY"
+x-scheme-handler/vscodium; /usr/share/codium/codium --open-url %s; test=test -n "$DISPLAY"
+text/plain; /usr/share/codium/codium %s; test=test -n "$DISPLAY"
+inode/directory; /usr/share/codium/codium %s; test=test -n "$DISPLAY"
+application/x-codium-workspace; /usr/share/codium/codium %s; test=test -n "$DISPLAY"
+x-scheme-handler/clipboard; diodon %s; test=test -n "$DISPLAY"
+image/avs; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/bie; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/x-ms-bmp; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/cmyk; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/dcx; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/eps; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/fax; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/fits; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/gif; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/gray; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/jpeg; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/pjpeg; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/miff; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/mono; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/mtv; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/x-portable-bitmap; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/pcd; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/pcx; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/pdf; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/x-portable-graymap; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/pict; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/png; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/x-portable-anymap; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/x-portable-pixmap; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/ps; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/rad; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/x-rgb; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/rgba; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/rla; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/rle; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/sgi; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/sun-raster; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/targa; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/tiff; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/uyvy; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/vid; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/viff; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/x-xbitmap; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/x-xpixmap; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/x-xwindowdump; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/x-icon; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/yuv; /usr/bin/display-im6.q16 -nostdin %s; test=test -n "$DISPLAY"
+image/bmp; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/g3fax; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/gif; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-fits; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-pcx; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-portable-anymap; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-portable-bitmap; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-portable-graymap; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-portable-pixmap; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-psd; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-sgi; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-tga; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-xbitmap; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-xwindowdump; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-xcf; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-compressed-xcf; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-gimp-gbr; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-gimp-pat; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-gimp-gih; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-sun-raster; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/tiff; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/jpeg; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-psp; gimp-2.10 %s; test=test -n "$DISPLAY"
+application/postscript; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/png; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-icon; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-xpixmap; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-exr; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/webp; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-webp; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/heif; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/heic; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/avif; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/jxl; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/svg+xml; gimp-2.10 %s; test=test -n "$DISPLAY"
+application/pdf; zathura %s; copiousoutput
+#application/pdf; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-wmf; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/jp2; gimp-2.10 %s; test=test -n "$DISPLAY"
+image/x-xcursor; gimp-2.10 %s; test=test -n "$DISPLAY"
+application/x-cb7; mcomix %s; test=test -n "$DISPLAY"
+application/x-ext-cb7; mcomix %s; test=test -n "$DISPLAY"
+application/x-cbr; mcomix %s; test=test -n "$DISPLAY"
+application/x-ext-cbr; mcomix %s; test=test -n "$DISPLAY"
+application/x-cbt; mcomix %s; test=test -n "$DISPLAY"
+application/x-ext-cbt; mcomix %s; test=test -n "$DISPLAY"
+application/x-cbz; mcomix %s; test=test -n "$DISPLAY"
+application/x-ext-cbz; mcomix %s; test=test -n "$DISPLAY"
+application/x-pdf; mcomix %s; test=test -n "$DISPLAY"
+application/x-ext-pdf; mcomix %s; test=test -n "$DISPLAY"
+image/bmp; mcomix %s; test=test -n "$DISPLAY"
+image/x-MS-bmp; mcomix %s; test=test -n "$DISPLAY"
+image/x-bmp; mcomix %s; test=test -n "$DISPLAY"
+image/gif; mcomix %s; test=test -n "$DISPLAY"
+image/jpeg; mcomix %s; test=test -n "$DISPLAY"
+image/png; mcomix %s; test=test -n "$DISPLAY"
+image/tiff; mcomix %s; test=test -n "$DISPLAY"
+image/x-portable-bitmap; mcomix %s; test=test -n "$DISPLAY"
+image/x-portable-graymap; mcomix %s; test=test -n "$DISPLAY"
+image/x-portable-pixmap; mcomix %s; test=test -n "$DISPLAY"
+application/ogg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-ogg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/mxf; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/sdp; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/smil; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-smil; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/streamingmedia; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-streamingmedia; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/vnd.rn-realmedia; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/vnd.rn-realmedia-vbr; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/aac; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-aac; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/vnd.dolby.heaac.1; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/vnd.dolby.heaac.2; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/aiff; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-aiff; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/m4a; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-m4a; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-extension-m4a; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/mp1; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-mp1; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/mp2; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-mp2; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/mp3; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-mp3; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/mpeg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/mpeg2; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/mpeg3; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/mpegurl; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-mpegurl; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/mpg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-mpg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/rn-mpeg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/musepack; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-musepack; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/ogg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/scpls; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-scpls; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/vnd.rn-realaudio; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/wav; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-pn-wav; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-pn-windows-pcm; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-realaudio; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-pn-realaudio; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-ms-wma; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-pls; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-wav; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/mpeg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-mpeg2; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-mpeg3; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/mp4v-es; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-m4v; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/mp4; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-extension-mp4; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/divx; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/vnd.divx; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/msvideo; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-msvideo; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/ogg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/quicktime; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/vnd.rn-realvideo; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-ms-afs; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-ms-asf; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-ms-asf; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/vnd.ms-asf; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-ms-wmv; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-ms-wmx; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-ms-wvxvideo; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-avi; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/avi; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-flic; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/fli; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-flc; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/flv; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-flv; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-theora; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-theora+ogg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-matroska; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/mkv; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-matroska; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-matroska; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/webm; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/webm; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/vorbis; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-vorbis; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-vorbis+ogg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-ogm; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/x-ogm+ogg; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-ogm; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-ogm-audio; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-ogm-video; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-shorten; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-shorten; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-ape; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-wavpack; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-tta; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/AMR; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/ac3; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/eac3; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/amr-wb; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/mp2t; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/flac; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/mp4; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-mpegurl; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/vnd.mpegurl; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/vnd.apple.mpegurl; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-pn-au; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/3gp; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/3gpp; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/3gpp2; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/3gpp; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/3gpp2; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+video/dv; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/dv; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/opus; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/vnd.dts; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/vnd.dts.hd; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/x-adpcm; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+application/x-cue; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+audio/m3u; mpv --player-operation-mode=pseudo-gui -- %s; test=test -n "$DISPLAY"
+text/english; nvim %s; needsterminal
+text/plain; nvim %s; needsterminal
+text/x-makefile; nvim %s; needsterminal
+text/x-c++hdr; nvim %s; needsterminal
+text/x-c++src; nvim %s; needsterminal
+text/x-chdr; nvim %s; needsterminal
+text/x-csrc; nvim %s; needsterminal
+text/x-java; nvim %s; needsterminal
+text/x-moc; nvim %s; needsterminal
+text/x-pascal; nvim %s; needsterminal
+text/x-tcl; nvim %s; needsterminal
+text/x-tex; nvim %s; needsterminal
+application/x-shellscript; nvim %s; needsterminal
+text/x-c; nvim %s; needsterminal
+text/x-c++; nvim %s; needsterminal
+application/x-openbox-theme; obconf %s; test=test -n "$DISPLAY"
+text/plain; gedit %s; test=test -n "$DISPLAY"
+application/x-zerosize; gedit %s; test=test -n "$DISPLAY"
+application/x-cbr; zathura %s; test=test -n "$DISPLAY"
+application/x-rar; zathura %s; test=test -n "$DISPLAY"
+application/x-cbz; zathura %s; test=test -n "$DISPLAY"
+application/zip; zathura %s; test=test -n "$DISPLAY"
+application/x-cb7; zathura %s; test=test -n "$DISPLAY"
+application/x-7z-compressed; zathura %s; test=test -n "$DISPLAY"
+application/x-cbt; zathura %s; test=test -n "$DISPLAY"
+application/x-tar; zathura %s; test=test -n "$DISPLAY"
+inode/directory; zathura %s; test=test -n "$DISPLAY"
+application/vnd.tcpdump.pcap; wireshark %s; test=test -n "$DISPLAY"
+application/x-pcapng; wireshark %s; test=test -n "$DISPLAY"
+application/x-snoop; wireshark %s; test=test -n "$DISPLAY"
+application/x-iptrace; wireshark %s; test=test -n "$DISPLAY"
+application/x-lanalyzer; wireshark %s; test=test -n "$DISPLAY"
+application/x-nettl; wireshark %s; test=test -n "$DISPLAY"
+application/x-radcom; wireshark %s; test=test -n "$DISPLAY"
+application/x-etherpeek; wireshark %s; test=test -n "$DISPLAY"
+application/x-visualnetworks; wireshark %s; test=test -n "$DISPLAY"
+application/x-netinstobserver; wireshark %s; test=test -n "$DISPLAY"
+application/x-5view; wireshark %s; test=test -n "$DISPLAY"
+application/x-tektronix-rf5; wireshark %s; test=test -n "$DISPLAY"
+application/x-micropross-mplog; wireshark %s; test=test -n "$DISPLAY"
+application/x-apple-packetlogger; wireshark %s; test=test -n "$DISPLAY"
+application/x-endace-erf; wireshark %s; test=test -n "$DISPLAY"
+application/ipfix; wireshark %s; test=test -n "$DISPLAY"
+application/x-ixia-vwr; wireshark %s; test=test -n "$DISPLAY"
+inode/directory; pcmanfm %s; test=test -n "$DISPLAY"
+inode/directory; ranger %s; needsterminal
+x-scheme-handler/spice; remote-viewer %s; test=test -n "$DISPLAY"
+x-scheme-handler/spice+unix; remote-viewer %s; test=test -n "$DISPLAY"
+x-scheme-handler/spice+tls; remote-viewer %s; test=test -n "$DISPLAY"
+application/x-virt-viewer; remote-viewer %s; test=test -n "$DISPLAY"
+x-scheme-handler/spotify; spotify %s; test=test -n "$DISPLAY"
+application/x-tint2-theme; tint2conf %s; test=test -n "$DISPLAY"
+image/bmp; viewnior %s; test=test -n "$DISPLAY"
+image/gif; viewnior %s; test=test -n "$DISPLAY"
+image/jpeg; viewnior %s; test=test -n "$DISPLAY"
+image/jpg; viewnior %s; test=test -n "$DISPLAY"
+image/pjpeg; viewnior %s; test=test -n "$DISPLAY"
+image/png; viewnior %s; test=test -n "$DISPLAY"
+image/tiff; viewnior %s; test=test -n "$DISPLAY"
+image/x-bmp; viewnior %s; test=test -n "$DISPLAY"
+image/x-gray; viewnior %s; test=test -n "$DISPLAY"
+image/x-icb; viewnior %s; test=test -n "$DISPLAY"
+image/x-ico; viewnior %s; test=test -n "$DISPLAY"
+image/x-png; viewnior %s; test=test -n "$DISPLAY"
+image/x-portable-anymap; viewnior %s; test=test -n "$DISPLAY"
+image/x-portable-bitmap; viewnior %s; test=test -n "$DISPLAY"
+image/x-portable-graymap; viewnior %s; test=test -n "$DISPLAY"
+image/x-portable-pixmap; viewnior %s; test=test -n "$DISPLAY"
+image/x-xbitmap; viewnior %s; test=test -n "$DISPLAY"
+image/x-xpixmap; viewnior %s; test=test -n "$DISPLAY"
+image/x-pcx; viewnior %s; test=test -n "$DISPLAY"
+image/svg+xml; viewnior %s; test=test -n "$DISPLAY"
+image/svg+xml-compressed; viewnior %s; test=test -n "$DISPLAY"
+image/vnd.wap.wbmp; viewnior %s; test=test -n "$DISPLAY"
+text/english; vim %s; needsterminal
+text/plain; vim %s; needsterminal
+text/x-makefile; vim %s; needsterminal
+text/x-c++hdr; vim %s; needsterminal
+text/x-c++src; vim %s; needsterminal
+text/x-chdr; vim %s; needsterminal
+text/x-csrc; vim %s; needsterminal
+text/x-java; vim %s; needsterminal
+text/x-moc; vim %s; needsterminal
+text/x-pascal; vim %s; needsterminal
+text/x-tcl; vim %s; needsterminal
+text/x-tex; vim %s; needsterminal
+application/x-shellscript; vim %s; needsterminal
+text/x-c; vim %s; needsterminal
+text/x-c++; vim %s; needsterminal
+application/x-virtualbox-vbox; VirtualBox %s; test=test -n "$DISPLAY"
+application/x-virtualbox-vbox-extpack; VirtualBox %s; test=test -n "$DISPLAY"
+application/x-virtualbox-ovf; VirtualBox %s; test=test -n "$DISPLAY"
+application/x-virtualbox-ova; VirtualBox %s; test=test -n "$DISPLAY"
+application/x-ms-dos-executable; wine start /unix %s; test=test -n "$DISPLAY"
+application/x-msi; wine start /unix %s; test=test -n "$DISPLAY"
+application/x-ms-shortcut; wine start /unix %s; test=test -n "$DISPLAY"
+application/x-bat; wine start /unix %s; test=test -n "$DISPLAY"
+application/x-mswinurl; wine start /unix %s; test=test -n "$DISPLAY"
+application/x-xboard-opt; xboard -opt %s; test=test -n "$DISPLAY"
+application/x-chess-fen; xboard -ncp -lpf %s; test=test -n "$DISPLAY"
+application/x-chess-pgn; xboard -viewer -lgf %s; test=test -n "$DISPLAY"
+application/x-xboard-trn; xboard -mm -tf %s; test=test -n "$DISPLAY"
+application/x-xpraconfig; xpra_launcher %s; test=test -n "$DISPLAY"
+x-scheme-handler/xpra; xpra attach %s; test=test -n "$DISPLAY"
+x-scheme-handler/xpras; xpra attach %s; test=test -n "$DISPLAY"
+x-scheme-handler/xpra+tls; xpra attach %s; test=test -n "$DISPLAY"
+x-scheme-handler/xpra+ssl; xpra attach %s; test=test -n "$DISPLAY"
+x-scheme-handler/xpra+tcp; xpra attach %s; test=test -n "$DISPLAY"
+x-scheme-handler/xpra+ssh; xpra attach %s; test=test -n "$DISPLAY"
+x-scheme-handler/xpra+ws; xpra attach %s; test=test -n "$DISPLAY"
+x-scheme-handler/xpra+wss; xpra attach %s; test=test -n "$DISPLAY"
+x-scheme-handler/ghelp; yelp %s; test=test -n "$DISPLAY"
+x-scheme-handler/help; yelp %s; test=test -n "$DISPLAY"
+x-scheme-handler/info; yelp %s; test=test -n "$DISPLAY"
+x-scheme-handler/man; yelp %s; test=test -n "$DISPLAY"
+text/plain; view %s; edit=vim %s; compose=vim %s; test=test -x /usr/bin/vim; needsterminal
+text/html; /usr/bin/w3m -T text/html %s; needsterminal; description=HTML Text; nametemplate=%s.html
+application/x-dvi; /usr/bin/dvi2tty -q %s; copiousoutput; description=TeX DVI
+application/zip; unzip -l %s; nametemplate=%s.zip; copiousoutput
+text/plain; view %s; edit=vi %s; compose=vi %s; needsterminal
+text/html; /usr/bin/w3m -I %{charset} -dump -T text/html %s; copiousoutput; description=HTML Text; nametemplate=%s.html
+image/gif; feh %s; test=test -n "$DISPLAY" ; description=GIF Image; nametemplate=%s.gif
+image/jpeg; feh %s; test=test -n "$DISPLAY" ; description=JPEG Image; nametemplate=%s.jpeg
+image/png; feh %s; test=test -n "$DISPLAY" ; description=PNG Image; nametemplate=%s.png
+image/tiff; feh %s; test=test -n "$DISPLAY" ; description=TIFF Image; nametemplate=%s.tiff
+image/x-portable-anymap; feh %s; test=test -n "$DISPLAY" ; description=PNM Image; nametemplate=%s.pnm
+image/targa; feh %s; test=test -n "$DISPLAY" ; description=TGA Image; nametemplate=%s.tga
+image/x-ms-bmp; feh %s; test=test -n "$DISPLAY" ; description=BMP Image; nametemplate=%s.bmp
+image/x-xpixmap; feh %s; test=test -n "$DISPLAY" ; description=XPM Image; nametemplate=%s.xpm
+image/pjpeg; feh %s; test=test -n "$DISPLAY" ; description=JPEG Image; nametemplate=%s.jpeg
+image/png;  /usr/bin/firefox-esr %s; description=PNG Image; test=test -n "$DISPLAY";  nametemplate=%s.png
+image/jpeg;  /usr/bin/firefox-esr %s; description=JPEG Image; test=test -n "$DISPLAY";  nametemplate=%s.jpeg
+image/gif;  /usr/bin/firefox-esr %s; description=GIF Image; test=test -n "$DISPLAY";  nametemplate=%s.gif
+image/avs; display-im6.q16. 'avs:%s'; test=test -n "$DISPLAY"
+image/bie; display-im6.q16 'jbig:%s'; test=test -n "$DISPLAY"
+image/x-ms-bmp; display-im6.q16 'bmp:%s'; test=test -n "$DISPLAY"
+image/cmyk; display-im6.q16 'cmyk:%s'; test=test -n "$DISPLAY"
+image/dcx; display-im6.q16 'dcx:%s'; test=test -n "$DISPLAY"
+image/eps; display-im6.q16 'eps:%s'; test=test -n "$DISPLAY"
+image/fax; display-im6.q16 'fax:%s'; test=test -n "$DISPLAY"
+image/fits; display-im6.q16 'fits:%s'; test=test -n "$DISPLAY"
+image/gif; display-im6.q16 'gif:%s'; test=test -n "$DISPLAY"
+image/gray; display-im6.q16 'gray:%s'; test=test -n "$DISPLAY"
+image/jpeg; display-im6.q16 'jpeg:%s'; test=test -n "$DISPLAY"
+image/pjpeg; display-im6.q16 'jpeg:%s'; test=test -n "$DISPLAY"
+image/miff; display-im6.q16 'miff:%s'; test=test -n "$DISPLAY"
+image/mono; display-im6.q16 'mono:%s'; test=test -n "$DISPLAY"
+image/mtv; display-im6.q16 'mtv:%s'; test=test -n "$DISPLAY"
+image/x-portable-bitmap; display-im6.q16 'pbm:%s'; test=test -n "$DISPLAY"
+image/pcd; display-im6.q16 'pcd:%s'; test=test -n "$DISPLAY"
+image/pcx; display-im6.q16 'pcx:%s'; test=test -n "$DISPLAY"
+image/pdf; display-im6.q16 'pdf:%s'; test=test -n "$DISPLAY"
+image/x-portable-graymap; display-im6.q16 'pgm:%s'; test=test -n "$DISPLAY"
+image/pict; display-im6.q16 'pict:%s'; test=test -n "$DISPLAY"
+image/png; display-im6.q16 'png:%s'; test=test -n "$DISPLAY"
+image/x-portable-anymap; display-im6.q16 'pnm:%s'; test=test -n "$DISPLAY"
+image/x-portable-pixmap; display-im6.q16 'ppm:%s'; test=test -n "$DISPLAY"
+image/ps; display-im6.q16 'ps:%s'; test=test -n "$DISPLAY"
+image/rad; display-im6.q16 'rad:%s'; test=test -n "$DISPLAY"
+image/x-rgb; display-im6.q16 'rgb:%s'; test=test -n "$DISPLAY"
+image/rgba; display-im6.q16 'rgba:%s'; test=test -n "$DISPLAY"
+image/rla; display-im6.q16 'rla:%s'; test=test -n "$DISPLAY"
+image/rle; display-im6.q16 'rle:%s'; test=test -n "$DISPLAY"
+image/sgi; display-im6.q16 'sgi:%s'; test=test -n "$DISPLAY"
+image/sun-raster; display-im6.q16 'sun:%s'; test=test -n "$DISPLAY"
+image/targa; display-im6.q16 'tga:%s'; test=test -n "$DISPLAY"
+image/tiff; display-im6.q16 'tiff:%s'; test=test -n "$DISPLAY"
+image/uyvy; display-im6.q16 'uyvy:%s'; test=test -n "$DISPLAY"
+image/vid; display-im6.q16 'vid:%s'; test=test -n "$DISPLAY"
+image/viff; display-im6.q16 'viff:%s'; test=test -n "$DISPLAY"
+image/x-xbitmap; display-im6.q16 'xbm:%s'; test=test -n "$DISPLAY"
+image/x-xpixmap; display-im6.q16 'xpm:%s'; test=test -n "$DISPLAY"
+image/x-xwindowdump; display-im6.q16 'xwd:%s'; test=test -n "$DISPLAY"
+image/x-icon; display-im6.q16 'icon:%s'; test=test -n "$DISPLAY"
+image/yuv; display-im6.q16 'yuv:%s'; test=test -n "$DISPLAY"
+application/x-troff-man; /usr/bin/man -Tascii -l %s | col -b; copiousoutput; description=Man page
+text/troff; /usr/bin/man -Tascii -l %s | col -b; copiousoutput; description=Man page
+text/*; less %s; needsterminal
+text/*; view %s; edit=vim %s; compose=vim %s; test=test -x /usr/bin/vim; needsterminal
+image/gif; /usr/bin/cacaview %s; description=GIF Image; nametemplate=%s.gif; test=test -n "$DISPLAY"
+image/gif; unset DISPLAY\; /usr/bin/cacaview %s; description=GIF Image; nametemplate=%s.gif; needsterminal
+image/jpeg; /usr/bin/cacaview %s; description=JPEG Image; nametemplate=%s.jpg; test=test -n "$DISPLAY"
+image/jpeg; unset DISPLAY\; /usr/bin/cacaview %s; description=JPEG Image; nametemplate=%s.jpg; needsterminal
+image/png; /usr/bin/cacaview %s; description=PNG Image; nametemplate=%s.png; test=test -n "$DISPLAY"
+image/png; unset DISPLAY\; /usr/bin/cacaview %s; description=PNG Image; nametemplate=%s.png; needsterminal
+image/tiff; /usr/bin/cacaview %s; description=TIFF Image; nametemplate=%s.tiff; test=test -n "$DISPLAY"
+image/tiff; unset DISPLAY\; /usr/bin/cacaview %s; description=TIFF Image; nametemplate=%s.tiff; needsterminal
+image/bmp; /usr/bin/cacaview %s; description=BMP Image; nametemplate=%s.bmp; test=test -n "$DISPLAY"
+image/bmp; unset DISPLAY\; /usr/bin/cacaview %s; description=BMP Image; nametemplate=%s.bmp; needsterminal
+image/x-ms-bmp; /usr/bin/cacaview %s; description=BMP Image; nametemplate=%s.bmp; test=test -n "$DISPLAY"
+image/x-ms-bmp; unset DISPLAY\; /usr/bin/cacaview %s; description=BMP Image; nametemplate=%s.bmp; needsterminal
+image/x-cmu-raster; /usr/bin/cacaview %s; description=CMU-RasterFile Image; nametemplate=%s.ras; test=test -n "$DISPLAY"
+image/x-cmu-raster; unset DISPLAY\; /usr/bin/cacaview %s; description=CMU-RasterFile Image; nametemplate=%s.ras; needsterminal
+image/g3fax; /usr/bin/cacaview %s; description=G3-FAX Image; nametemplate=%s.g3; test=test -n "$DISPLAY"
+image/g3fax; unset DISPLAY\; /usr/bin/cacaview %s; description=G3-FAX Image; nametemplate=%s.g3; needsterminal
+image/targa; /usr/bin/cacaview %s; description=TARGA Image; nametemplate=%s.tga; test=test -n "$DISPLAY"
+image/targa; unset DISPLAY\; /usr/bin/cacaview %s; description=TARGA Image; nametemplate=%s.tga; needsterminal
+image/x-portable-bitmap; /usr/bin/cacaview %s; description=PBM Image; nametemplate=%s.pbm; test=test -n "$DISPLAY"
+image/x-portable-bitmap; unset DISPLAY\; /usr/bin/cacaview %s; description=PBM Image; nametemplate=%s.pbm; needsterminal
+image/x-portable-graymap; /usr/bin/cacaview %s; description=PGM Image; nametemplate=%s.pgm; test=test -n "$DISPLAY"
+image/x-portable-graymap; unset DISPLAY\; /usr/bin/cacaview %s; description=PGM Image; nametemplate=%s.pgm; needsterminal
+image/x-portable-anymap; /usr/bin/cacaview %s; description=PNM Image; nametemplate=%s.pnm; test=test -n "$DISPLAY"
+image/x-portable-anymap; unset DISPLAY\; /usr/bin/cacaview %s; description=PNM Image; nametemplate=%s.pnm; needsterminal
+image/x-portable-pixmap; /usr/bin/cacaview %s; description=PPM Image; nametemplate=%s.ppm; test=test -n "$DISPLAY"
+image/x-portable-pixmap; unset DISPLAY\; /usr/bin/cacaview %s; description=PPM Image; nametemplate=%s.ppm; needsterminal
+image/x-rgb; /usr/bin/cacaview %s; description=RGB Image; nametemplate=%s.rgb; test=test -n "$DISPLAY"
+image/x-rgb; unset DISPLAY\; /usr/bin/cacaview %s; description=RGB Image; nametemplate=%s.rgb; needsterminal
+image/x-xpixmap; /usr/bin/cacaview %s; description=XPM Image; nametemplate=%s.xpm; test=test -n "$DISPLAY"
+image/x-xpixmap; unset DISPLAY\; /usr/bin/cacaview %s; description=XPM Image; nametemplate=%s.xpm; needsterminal
+application/x-tar; /bin/tar tvf %s; print=/bin/tar tvf - | print text/plain:-; copiousoutput
+application/x-gtar; /bin/tar tvf %s; print=/bin/tar tvf - | print text/plain:-; copiousoutput
+application/x-ustar; /bin/tar tvf %s; print=/bin/tar tvf - | print text/plain:-; copiousoutput
+application/ogg; ogginfo %s; copiousoutput; description="Ogg Vorbis multimedia format"
+audio/ogg; ogginfo %s; copiousoutput
+video/ogg; ogginfo %s; copiousoutput
+text/*; more %s; needsterminal
+text/*; view %s; edit=vi %s; compose=vi %s; needsterminal
+application/vnd.debian.binary-package; /usr/lib/mime/debian-view %s; needsterminal; description=Debian GNU/Linux Package; nametemplate=%s.deb
