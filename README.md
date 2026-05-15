@@ -26,4 +26,6 @@ Mail, IRC, and private feed config files are tracked with credential fields repl
 
 ## Bootstrap
 
-Run `./install` on Debian, then copy or symlink the tracked files into `$HOME`.
+Run `./install` on Debian. It installs the package baseline, copies the tracked dotfiles into `$HOME`, and backs up overwritten files under `~/.dotfiles-backup/<timestamp>/`.
+
+Mail, IRC, and private feed credentials must be restored locally after install because public repo copies use placeholders.

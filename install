@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -eu
 
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+backup_dir="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
+
 sudo apt update
 sudo apt install --no-install-recommends \
     alacritty \
@@ -49,4 +52,59 @@ sudo apt install --no-install-recommends \
     xfce4-power-manager \
     xsettingsd
 
-printf '\nDotfiles are managed from this repository. Copy or symlink the tracked files into $HOME as needed.\n'
+backup_target() {
+    target=$1
+
+    if [ -e "$target" ] || [ -L "$target" ]; then
+        mkdir -p "$backup_dir/$(dirname "${target#$HOME/}")"
+        cp -a "$target" "$backup_dir/${target#$HOME/}"
+    fi
+}
+
+install_path() {
+    src=$1
+    dest=$HOME/$src
+
+    backup_target "$dest"
+    mkdir -p "$(dirname "$dest")"
+    cp -a "$repo_dir/$src" "$dest"
+}
+
+paths='
+.Xresources
+.bash_profile
+.bashrc
+.config/.task
+.config/alacritty
+.config/dunst
+.config/git
+.config/greek.sh
+.config/gtk-3.0
+.config/irssi
+.config/mimeapps.list
+.config/mutt
+.config/newsboat
+.config/nvim
+.config/openbox
+.config/picom
+.config/rofi
+.config/tint2
+.config/tmux
+.config/urxvtext
+.gtkrc-2.0
+.keynavrc
+.nethackrc
+.nethackrcx11
+.themes/Gruvbox
+'
+
+for path in $paths; do
+    install_path "$path"
+done
+
+chmod +x "$HOME/.config/greek.sh" "$HOME/.config/tint2/bicho.py" || true
+chmod +x "$HOME/.config/urxvtext/font-size" "$HOME/.config/urxvtext/font-zoom" "$HOME/.config/urxvtext/resize-font" || true
+
+printf '\nInstalled dotfiles into %s\n' "$HOME"
+printf 'Backups, if any, were written to %s\n' "$backup_dir"
+printf 'Mail, IRC, and private feed credentials are intentionally REDACTED in this repo. Restore private values locally after install.\n'
