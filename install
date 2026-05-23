@@ -24,6 +24,7 @@ sudo apt install --no-install-recommends \
     keynav \
     lbdb \
     lf \
+    btop \
     neomutt \
     neovim \
     network-manager-gnome \
