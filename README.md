@@ -1,72 +1,59 @@
-# dotfiles
+dotfiles
+========
 
-Meus dotfiles para Debian usando `startx` e o desktop suckless que eu uso no dia
-a dia. Isto nao tenta ser uma instalacao generica de Linux; e a configuracao de
-usuario que deixa uma maquina nova parecida com a minha.
+Este repositorio guarda meus dotfiles de usuario para Debian, `startx` e o
+desktop suckless que uso no dia a dia.
 
-O codigo dos programas suckless fica separado:
+Nao e uma instalacao generica de Linux. A ideia e deixar uma maquina nova
+parecida com a minha, com backups antes de sobrescrever arquivos existentes.
 
-```sh
-git clone git@github.com:vtr88/suckless.git ~/Documentos/c/suckless
-```
+Arquivos
+--------
+- `.xinitrc`: sessao X iniciada por `startx`.
+- `.zshrc`: shell sem framework, historico em XDG e prompt gruvbox.
+- `.Xresources`: recursos X usados por clientes antigos.
+- `.config/nvim`, `.config/tmux` e `.config/git`: editor, tmux e git.
+- `.config/lf`: file manager com preview.
+- `.config/picom`, `.config/dunst` e `.config/feh`: compositor, notificacoes e wallpaper.
+- `.config/mutt`, `.config/newsboat` e `.config/irssi`: mail, feeds e IRC sem senhas.
+- `.config/keynav`: configuracao XDG do keynav.
+- `.themes/Gruvbox`, `.gtkrc-2.0` e `.config/gtk-3.0`: tema GTK.
+- `.nethackrc` e `.nethackrcx11`: configuracao do NetHack.
 
-## Sessao
+Dependencias Debian
+-------------------
+O script `install` instala o baseline que estes dotfiles esperam: X, zsh,
+tmux, neovim, lf, picom, dunst, feh, mail/news/IRC, utilitarios de desktop e
+fontes.
 
-O X sobe por `.xinitrc`. Por padrao ele inicia `dwm`; se eu precisar voltar para
-Openbox em alguma emergencia, uso:
+As ferramentas suckless ficam em outro repositorio:
 
-```sh
-WM=openbox startx
-```
+    git clone git@github.com:vtr88/suckless.git ~/Documentos/c/suckless
 
-Servicos que a sessao inicia:
+Como instalar
+-------------
+Clone este repositorio e rode:
 
-- `picom`, `dunst`, `feh`, `keynav`, `flameshot`
-- `slstatus` para texto da barra do `dwm`
-- `nm-applet`, `volumeicon`, `diodon`
-- `xfce4-power-manager` e agente de policykit
+    ./install
 
-## Programas Base
+O script copia os arquivos versionados para `$HOME` e salva backups em:
 
-O desktop principal vem do repo suckless:
+    ~/.dotfiles-backup/<timestamp>/
 
-- `dwm`: window manager
-- `st`: terminal
-- `dmenu`: launcher
-- `slstatus`: status da barra
-- `slock`: lock screen
-- `keynav`: navegacao do mouse pelo teclado
+Sessao X
+--------
+O fluxo normal e iniciar com:
 
-Neste repo ficam os arquivos ao redor disso: `zsh`, `tmux`, `lf`, `nvim`,
-`picom`, `dunst`, `feh`, `git`, mail/news/irc e temas.
+    startx
 
-## O Que E Versionado
+Por padrao, `.xinitrc` sobe o `dwm`. Para usar Openbox em uma emergencia:
 
-- `.zshrc`: zsh sem framework, historico em `~/.config/zsh/history` e prompt gruvbox com estado de git
-- `.xinitrc`: inicializacao da sessao X
-- `.Xresources`: recursos de X ainda usados por clientes como NetHack
-- `.config/lf/`: `lf` com tema gruvbox e preview por `ueberzug`
-- `.config/keynav/keynavrc`: config do keynav em caminho XDG
-- `.config/feh/`: wallpaper
-- `.config/picom/`, `.config/dunst/`: compositor e notificacoes
-- `.config/nvim/`, `.config/tmux/`, `.config/git/`: editor, tmux e git
-- `.config/mutt/`, `.config/newsboat/`, `.config/irssi/`: configs publicas, sem senhas
-- `.themes/Gruvbox/`, `.gtkrc-2.0`, `.config/gtk-3.0/`: tema GTK
-- `.nethackrc` e `.nethackrcx11`
+    WM=openbox startx
 
-## Install
-
-O script instala um baseline de pacotes Debian e copia os arquivos versionados
-para `$HOME`, fazendo backup do que seria sobrescrito em
-`~/.dotfiles-backup/<timestamp>/`.
-
-```sh
-./install
-```
-
-Depois do `install`, ainda falta o que nao pertence a este repo:
-
-- compilar e instalar `dwm`, `st`, `dmenu`, `slstatus`, `slock` e `keynav` pelo repo suckless
-- restaurar localmente o `.config/mutt/.mbsyncrc` privado
-- revisar qualquer placeholder pessoal em mail, newsboat, IRC, SSH e VPN
-- garantir que o shell do usuario seja `zsh`
+Depois do install
+-----------------
+- Compile e instale `dwm`, `st`, `dmenu`, `slstatus`, `slock` e `keynav` pelo
+  repositorio `suckless`.
+- Restaure localmente o `.config/mutt/.mbsyncrc`, que nao e versionado.
+- Revise placeholders pessoais em mail, feeds, IRC, SSH e VPN.
+- Garanta que o shell do usuario seja `zsh`.
