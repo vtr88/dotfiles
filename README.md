@@ -1,39 +1,65 @@
 # dotfiles
 
-Personal Debian 13 / suckless dotfiles for the current `soth` workstation.
+Personal Debian 13 dotfiles for my current suckless desktop.
 
-This used to be an old minimal Debian/Openbox reinstall snapshot. It is now kept as a lean user-config repository for the current dwm/st/dmenu/slstatus setup: shell, X startup, lf, editor, picom, dunst, newsboat, neomutt, irssi, Taskwarrior, keynav, and NetHack config.
-
-## Layout
-
-- `.zshrc`, `.xinitrc`, `.Xresources`, `.gtkrc-2.0`, `.keynavrc`, `.nethackrc`, `.nethackrcx11`: top-level user config.
-- `.config/`: XDG user config copied from the active machine.
-- `.themes/Gruvbox/`: local GTK theme used by the session.
-- `install`: current Debian package baseline.
-
-## Deliberately excluded
-
-This repo should not track machine secrets or runtime state:
-
-- SSH/GPG keys and auth files
-- browser/app cookies and databases
-- PulseAudio runtime files
-- Taskwarrior task data
-- mbsync account/password config
-- generated logs, caches, and lock files
-- old full-system replacements like `/etc/sudoers`, `/etc/apt/sources.list`, GRUB, LightDM, and network interface files
-- Codex/tool runtime directories such as `.codex/` and `.agents/`
-
-Mail sync credentials are not tracked. Keep private mbsync config local.
-
-## Bootstrap
-
-Run `./install` on Debian. It installs the package baseline, copies the tracked dotfiles into `$HOME`, and backs up overwritten files under `~/.dotfiles-backup/<timestamp>/`.
-
-The suckless programs themselves live in the separate `suckless` repo:
+This repository tracks user/session configuration around a separate suckless
+source tree. The window manager, terminal, menu, status bar, and lock screen are
+built from:
 
 ```text
 git@github.com:vtr88/suckless.git
 ```
 
-Build and install dwm, st, dmenu, slstatus, and slock from that repo. This dotfiles repo only carries user/session config around them.
+## Current Stack
+
+- `dwm` as the X window manager
+- `st` as the terminal
+- `dmenu` for launching
+- `slstatus` for the dwm status text
+- `slock` for locking
+- `zsh` as the login shell
+- `lf` with `ueberzug` previews
+- `feh`, `picom`, `dunst`, `keynav`, `tmux`, `neovim`
+
+## Layout
+
+- `.zshrc`: shell config, history path, aliases, and gruvbox git prompt.
+- `.xinitrc`: X session startup for dwm and user services.
+- `.Xresources`: legacy X resources still kept for X clients such as NetHack.
+- `.config/lf/`: lf config, gruvbox colors, previewer, and ueberzug wrapper.
+- `.config/keynav/keynavrc`: keynav bindings using the XDG config path.
+- `.config/feh/`, `.config/picom/`, `.config/dunst/`: session visuals and notifications.
+- `.config/nvim/`, `.config/tmux/`, `.config/git/`: editor, multiplexer, and git config.
+- `.config/mutt/`, `.config/newsboat/`, `.config/irssi/`: public-safe app config with credentials redacted or excluded.
+- `.themes/Gruvbox/`: local GTK theme.
+- `install`: Debian package baseline plus dotfile copy script.
+
+## Not Tracked
+
+This repo should not contain secrets or runtime state:
+
+- SSH/GPG keys and auth files
+- browser/app cookies and databases
+- shell history
+- Taskwarrior task data
+- mbsync account/password config
+- generated logs, caches, lock files, and local state
+- Codex/tool runtime directories such as `.codex/` and `.agents/`
+- full-system files such as `/etc/apt`, GRUB, LightDM, sudoers, and network config
+
+Mail sync credentials are intentionally not tracked. Keep the private
+`.config/mutt/.mbsyncrc` local.
+
+## Bootstrap
+
+Run:
+
+```sh
+./install
+```
+
+The script installs the package baseline, copies the tracked files into `$HOME`,
+and backs up overwritten files under `~/.dotfiles-backup/<timestamp>/`.
+
+After that, build and install `dwm`, `st`, `dmenu`, `slstatus`, and `slock` from
+the suckless repo.

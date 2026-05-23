@@ -81,6 +81,7 @@ paths='
 .config/greek.sh
 .config/gtk-3.0
 .config/irssi
+.config/keynav
 .config/lf
 .config/mimeapps.list
 .config/mutt
@@ -89,7 +90,6 @@ paths='
 .config/picom
 .config/tmux
 .gtkrc-2.0
-.keynavrc
 .nethackrc
 .nethackrcx11
 .themes/Gruvbox
