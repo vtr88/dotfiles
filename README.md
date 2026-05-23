@@ -71,18 +71,6 @@ Aliases importantes estao em `.zshrc`, incluindo `lf`, `pathos`, `chess`,
 - `.themes/Gruvbox/`, `.gtkrc-2.0`, `.config/gtk-3.0/`: tema GTK
 - `.nethackrc` e `.nethackrcx11`
 
-## O Que Nao Deve Entrar Aqui
-
-Este repo nao deve carregar segredo nem estado de runtime:
-
-- chaves SSH/GPG, tokens, cookies e bancos de dados de navegador
-- historico de shell
-- dados do Taskwarrior
-- `.config/mutt/.mbsyncrc`, porque contem conta/senha de mail sync
-- caches, logs, sockets, locks e arquivos gerados
-- diretorios de ferramentas como `.codex/` e `.agents/`
-- configuracao de sistema como `/etc/apt`, GRUB, sudoers, rede e display manager
-
 ## Install
 
 O script instala um baseline de pacotes Debian e copia os arquivos versionados
