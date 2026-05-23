@@ -28,10 +28,7 @@ sudo apt install --no-install-recommends \
     neovim \
     network-manager-gnome \
     newsboat \
-    nethack-console \
-    nethack-x11 \
     papirus-icon-theme \
-    pcmanfm \
     picom \
     policykit-1-gnome \
     python3-bs4 \
