@@ -14,8 +14,10 @@ Arquivos
 - `.Xresources`: recursos X usados por clientes antigos.
 - `.config/nvim`, `.config/tmux` e `.config/git`: editor, tmux e git.
 - `.config/lf`: file manager com preview.
-- `.config/picom`, `.config/dunst` e `.config/feh`: compositor, notificacoes e wallpaper.
-- `.config/mutt`, `.config/newsboat` e `.config/irssi`: mail, feeds e IRC sem senhas.
+- `.config/picom`, `.config/dunst` e `.config/feh`: compositor, notificacoes
+  e wallpaper.
+- `.config/mutt`, `.config/newsboat` e `.config/irssi`: mail, feeds e IRC
+  sem senhas.
 - `.config/keynav`: configuracao XDG do keynav.
 - `.themes/Gruvbox`, `.gtkrc-2.0` e `.config/gtk-3.0`: tema GTK.
 - `.nethackrc` e `.nethackrcx11`: configuracao do NetHack.
