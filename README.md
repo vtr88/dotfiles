@@ -40,23 +40,6 @@ O desktop principal vem do repo suckless:
 Neste repo ficam os arquivos ao redor disso: `zsh`, `tmux`, `lf`, `nvim`,
 `picom`, `dunst`, `feh`, `git`, mail/news/irc e temas.
 
-## Uso Normal
-
-Quase tudo acontece em `st` + `tmux`. No shell, `ok` monta o meu workspace
-normal:
-
-- `main`: home, `taskwarrior` e resumo de tarefas
-- `nmutt`: `neomutt`
-- `irssi`: IRC com config em `~/.config/irssi`
-- `newsboat`: feeds
-- `jopy`: `joplin`
-- `codex`: Codex CLI
-- `nethack`: login em `nethack@us.hardfought.org`
-- `pathos`: `nvim` no projeto `~/Documentos/gamedev/pathos`
-
-Aliases importantes estao em `.zshrc`, incluindo `lf`, `pathos`, `chess`,
-`vpnon`, `vpnoff`, `vpnstatus`, `apt`, `tt` e `main`.
-
 ## O Que E Versionado
 
 - `.zshrc`: zsh sem framework, historico em `~/.config/zsh/history` e prompt gruvbox com estado de git
