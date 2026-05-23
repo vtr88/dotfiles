@@ -1,65 +1,101 @@
 # dotfiles
 
-Personal Debian 13 dotfiles for my current suckless desktop.
+Meus dotfiles para Debian usando `startx` e o desktop suckless que eu uso no dia
+a dia. Isto nao tenta ser uma instalacao generica de Linux; e a configuracao de
+usuario que deixa uma maquina nova parecida com a minha.
 
-This repository tracks user/session configuration around a separate suckless
-source tree. The window manager, terminal, menu, status bar, and lock screen are
-built from:
+O codigo dos programas suckless fica separado:
 
-```text
-git@github.com:vtr88/suckless.git
+```sh
+git clone git@github.com:vtr88/suckless.git ~/Documentos/c/suckless
 ```
 
-## Current Stack
+## Sessao
 
-- `dwm` as the X window manager
-- `st` as the terminal
-- `dmenu` for launching
-- `slstatus` for the dwm status text
-- `slock` for locking
-- `zsh` as the login shell
-- `lf` with `ueberzug` previews
-- `feh`, `picom`, `dunst`, `keynav`, `tmux`, `neovim`
+O X sobe por `.xinitrc`. Por padrao ele inicia `dwm`; se eu precisar voltar para
+Openbox em alguma emergencia, uso:
 
-## Layout
+```sh
+WM=openbox startx
+```
 
-- `.zshrc`: shell config, history path, aliases, and gruvbox git prompt.
-- `.xinitrc`: X session startup for dwm and user services.
-- `.Xresources`: legacy X resources still kept for X clients such as NetHack.
-- `.config/lf/`: lf config, gruvbox colors, previewer, and ueberzug wrapper.
-- `.config/keynav/keynavrc`: keynav bindings using the XDG config path.
-- `.config/feh/`, `.config/picom/`, `.config/dunst/`: session visuals and notifications.
-- `.config/nvim/`, `.config/tmux/`, `.config/git/`: editor, multiplexer, and git config.
-- `.config/mutt/`, `.config/newsboat/`, `.config/irssi/`: public-safe app config with credentials redacted or excluded.
-- `.themes/Gruvbox/`: local GTK theme.
-- `install`: Debian package baseline plus dotfile copy script.
+Servicos que a sessao inicia:
 
-## Not Tracked
+- `picom`, `dunst`, `feh`, `keynav`, `flameshot`
+- `slstatus` para texto da barra do `dwm`
+- `nm-applet`, `volumeicon`, `diodon`
+- `xfce4-power-manager` e agente de policykit
 
-This repo should not contain secrets or runtime state:
+## Programas Base
 
-- SSH/GPG keys and auth files
-- browser/app cookies and databases
-- shell history
-- Taskwarrior task data
-- mbsync account/password config
-- generated logs, caches, lock files, and local state
-- Codex/tool runtime directories such as `.codex/` and `.agents/`
-- full-system files such as `/etc/apt`, GRUB, LightDM, sudoers, and network config
+O desktop principal vem do repo suckless:
 
-Mail sync credentials are intentionally not tracked. Keep the private
-`.config/mutt/.mbsyncrc` local.
+- `dwm`: window manager
+- `st`: terminal
+- `dmenu`: launcher
+- `slstatus`: status da barra
+- `slock`: lock screen
+- `keynav`: navegacao do mouse pelo teclado
 
-## Bootstrap
+Neste repo ficam os arquivos ao redor disso: `zsh`, `tmux`, `lf`, `nvim`,
+`picom`, `dunst`, `feh`, `git`, mail/news/irc e temas.
 
-Run:
+## Uso Normal
+
+Quase tudo acontece em `st` + `tmux`. No shell, `ok` monta o meu workspace
+normal:
+
+- `main`: home, `taskwarrior` e resumo de tarefas
+- `nmutt`: `neomutt`
+- `irssi`: IRC com config em `~/.config/irssi`
+- `newsboat`: feeds
+- `jopy`: `joplin`
+- `codex`: Codex CLI
+- `nethack`: login em `nethack@us.hardfought.org`
+- `pathos`: `nvim` no projeto `~/Documentos/gamedev/pathos`
+
+Aliases importantes estao em `.zshrc`, incluindo `lf`, `pathos`, `chess`,
+`vpnon`, `vpnoff`, `vpnstatus`, `apt`, `tt` e `main`.
+
+## O Que E Versionado
+
+- `.zshrc`: zsh sem framework, historico em `~/.config/zsh/history` e prompt gruvbox com estado de git
+- `.xinitrc`: inicializacao da sessao X
+- `.Xresources`: recursos de X ainda usados por clientes como NetHack
+- `.config/lf/`: `lf` com tema gruvbox e preview por `ueberzug`
+- `.config/keynav/keynavrc`: config do keynav em caminho XDG
+- `.config/feh/`: wallpaper
+- `.config/picom/`, `.config/dunst/`: compositor e notificacoes
+- `.config/nvim/`, `.config/tmux/`, `.config/git/`: editor, tmux e git
+- `.config/mutt/`, `.config/newsboat/`, `.config/irssi/`: configs publicas, sem senhas
+- `.themes/Gruvbox/`, `.gtkrc-2.0`, `.config/gtk-3.0/`: tema GTK
+- `.nethackrc` e `.nethackrcx11`
+
+## O Que Nao Deve Entrar Aqui
+
+Este repo nao deve carregar segredo nem estado de runtime:
+
+- chaves SSH/GPG, tokens, cookies e bancos de dados de navegador
+- historico de shell
+- dados do Taskwarrior
+- `.config/mutt/.mbsyncrc`, porque contem conta/senha de mail sync
+- caches, logs, sockets, locks e arquivos gerados
+- diretorios de ferramentas como `.codex/` e `.agents/`
+- configuracao de sistema como `/etc/apt`, GRUB, sudoers, rede e display manager
+
+## Install
+
+O script instala um baseline de pacotes Debian e copia os arquivos versionados
+para `$HOME`, fazendo backup do que seria sobrescrito em
+`~/.dotfiles-backup/<timestamp>/`.
 
 ```sh
 ./install
 ```
 
-The script installs the package baseline, copies the tracked files into `$HOME`,
-and backs up overwritten files under `~/.dotfiles-backup/<timestamp>/`.
+Depois do `install`, ainda falta o que nao pertence a este repo:
 
-After that, build and install `dwm`, `st`, `dmenu`, `slstatus`, and `slock` from
-the suckless repo.
+- compilar e instalar `dwm`, `st`, `dmenu`, `slstatus`, `slock` e `keynav` pelo repo suckless
+- restaurar localmente o `.config/mutt/.mbsyncrc` privado
+- revisar qualquer placeholder pessoal em mail, newsboat, IRC, SSH e VPN
+- garantir que o shell do usuario seja `zsh`
