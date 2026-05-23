@@ -1,0 +1,96 @@
+# Gruvbox dark para lf.
+#
+# Codigos ANSI/256-color aproximados:
+# 223 foreground claro, 245 cinza, 142 verde, 214 amarelo/laranja,
+# 167 vermelho, 109 azul, 175 roxo, 208 laranja forte.
+
+fi 00
+di 01;38;5;142
+ln 01;38;5;109
+or 01;38;5;167
+ex 01;38;5;142
+pi 38;5;214
+so 01;38;5;175
+bd 01;38;5;214
+cd 01;38;5;214
+su 01;38;5;167
+sg 01;38;5;167
+tw 01;38;5;142
+ow 01;38;5;142
+st 01;38;5;214
+
+# Metadados e arquivos importantes.
+README.* 01;38;5;214
+LICENSE* 38;5;245
+Makefile 01;38;5;208
+Dockerfile 01;38;5;208
+.git/ 01;38;5;142
+.gitignore 38;5;245
+.gitmodules 38;5;245
+
+# Codigo e configs.
+*.c 38;5;109
+*.h 38;5;109
+*.cpp 38;5;109
+*.hpp 38;5;109
+*.rs 38;5;208
+*.go 38;5;109
+*.py 38;5;142
+*.sh 38;5;142
+*.bash 38;5;142
+*.zsh 38;5;142
+*.lua 38;5;109
+*.js 38;5;214
+*.ts 38;5;214
+*.jsx 38;5;214
+*.tsx 38;5;214
+*.html 38;5;208
+*.css 38;5;109
+*.json 38;5;214
+*.toml 38;5;214
+*.yaml 38;5;214
+*.yml 38;5;214
+*.conf 38;5;245
+
+# Documentos.
+*.txt 38;5;223
+*.md 38;5;214
+*.pdf 38;5;167
+*.epub 38;5;167
+*.doc 38;5;109
+*.docx 38;5;109
+*.odt 38;5;109
+
+# Imagens.
+*.png 01;38;5;175
+*.jpg 01;38;5;175
+*.jpeg 01;38;5;175
+*.gif 01;38;5;175
+*.webp 01;38;5;175
+*.bmp 01;38;5;175
+*.svg 01;38;5;175
+*.ase 01;38;5;175
+*.aseprite 01;38;5;175
+
+# Audio e video.
+*.mp3 01;38;5;109
+*.flac 01;38;5;109
+*.ogg 01;38;5;109
+*.wav 01;38;5;109
+*.mp4 01;38;5;208
+*.mkv 01;38;5;208
+*.webm 01;38;5;208
+*.mov 01;38;5;208
+*.avi 01;38;5;208
+
+# Arquivos compactados e pacotes.
+*.zip 01;38;5;167
+*.tar 01;38;5;167
+*.tgz 01;38;5;167
+*.gz 01;38;5;167
+*.bz2 01;38;5;167
+*.xz 01;38;5;167
+*.zst 01;38;5;167
+*.7z 01;38;5;167
+*.rar 01;38;5;167
+*.deb 01;38;5;167

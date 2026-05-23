@@ -1,0 +1,34 @@
+set preview true
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
+set ratios 1:2:3
+set info size:time
+set dircounts
+set drawbox true
+set promptfmt "\033[38;5;223m%w/%f\033[0m"
+
+map <enter> open
+map x execute
+
+cmd open ${{
+    case "$(file --mime-type -Lb "$f")" in
+        image/*)
+            feh -F "$f"
+            ;;
+        video/*)
+            mpv "$f"
+            ;;
+        *)
+            xdg-open "$f"
+            ;;
+    esac
+}}
+
+cmd execute ${{
+    if [ -f "$f" ] && [ -x "$f" ]; then
+        "$f"
+    else
+        printf '%s\n' "not executable: $f"
+        read -r _
+    fi
+}}

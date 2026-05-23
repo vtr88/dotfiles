@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+[ -p "$FIFO_UEBERZUG" ] || exit 0
+
+declare -A cmd=(
+	[action]=remove
+	[identifier]=preview
+)
+
+declare -p cmd > "$FIFO_UEBERZUG"

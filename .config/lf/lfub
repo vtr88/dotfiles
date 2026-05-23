@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+export FIFO_UEBERZUG="${TMPDIR:-/tmp}/lf-ueberzug-$$"
+mkfifo "$FIFO_UEBERZUG"
+
+cleanup() {
+	"$HOME/.config/lf/cleaner" >/dev/null 2>&1
+	exec 3>&- 2>/dev/null
+	[ -n "$ueberzug_pid" ] && kill "$ueberzug_pid" >/dev/null 2>&1
+	rm -f "$FIFO_UEBERZUG"
+}
+
+trap cleanup EXIT INT TERM
+
+ueberzug layer --parser bash --silent < "$FIFO_UEBERZUG" &
+ueberzug_pid=$!
+exec 3>"$FIFO_UEBERZUG"
+
+lf "$@"

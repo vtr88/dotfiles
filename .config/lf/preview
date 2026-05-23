@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+file=$1
+w=$2
+h=$3
+x=$4
+y=$5
+id=preview
+
+send_ueberzug() {
+	[ -p "$FIFO_UEBERZUG" ] || return 1
+	declare -p cmd > "$FIFO_UEBERZUG"
+}
+
+remove_preview() {
+	declare -A cmd=(
+		[action]=remove
+		[identifier]="$id"
+	)
+	send_ueberzug
+}
+
+draw_preview() {
+	declare -A cmd=(
+		[action]=add
+		[identifier]="$id"
+		[x]="$x"
+		[y]="$y"
+		[width]="$w"
+		[height]="$h"
+		[scaler]=contain
+		[path]="$1"
+	)
+	send_ueberzug
+}
+
+text_preview() {
+	remove_preview
+
+	if [ -d "$file" ]; then
+		ls -lah --color=always "$file" | sed -n '1,200p'
+		return
+	fi
+
+	case "$mime" in
+		text/*|application/json|application/xml|application/x-shellscript)
+			if command -v highlight >/dev/null 2>&1; then
+				highlight -O ansi "$file" 2>/dev/null | sed -n '1,200p'
+				if [ "${PIPESTATUS[0]}" -eq 0 ]; then
+					return
+				fi
+			else
+				sed -n '1,200p' "$file"
+				return
+			fi
+			sed -n '1,200p' "$file"
+			;;
+		*)
+			file -b "$file"
+			;;
+	esac
+}
+
+[ -n "$file" ] || exit 0
+mime=$(file --mime-type -Lb "$file" 2>/dev/null || printf unknown)
+
+case "$mime" in
+	image/*)
+		remove_preview
+		draw_preview "$file"
+		# Imagem via ueberzug fica fora do buffer de texto do lf.
+		# Retornar 1 desativa o cache desse preview e faz o lf chamar o cleaner
+		# quando o cursor sai da imagem.
+		exit 1
+		;;
+	video/*)
+		thumb="${XDG_CACHE_HOME:-$HOME/.cache}/lf/thumbs/$(stat -c '%n-%s-%Y' "$file" | sha256sum | cut -d' ' -f1).jpg"
+		mkdir -p "$(dirname "$thumb")"
+		if [ ! -s "$thumb" ] && command -v ffmpegthumbnailer >/dev/null 2>&1; then
+			ffmpegthumbnailer -i "$file" -o "$thumb" -s 0 >/dev/null 2>&1
+		fi
+		if [ -s "$thumb" ]; then
+			remove_preview
+			draw_preview "$thumb"
+			# Mesmo motivo das imagens: o thumbnail e desenhado pelo ueberzug.
+			exit 1
+		else
+			text_preview
+		fi
+		;;
+	*)
+		text_preview
+		;;
+esac

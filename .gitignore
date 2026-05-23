@@ -1,5 +1,9 @@
 # Runtime/cache state
+.agents/
+.codex/
 .cache/
+.bash_history
+.zsh_history
 *.log
 *.sqlite
 *.sqlite-*
@@ -29,12 +33,14 @@ account.gpg
 .config/chromium/
 .config/discord/
 .config/joplin*/
+.config/stalonetray/
 .config/transmission/
 .config/VirtualBox/
 .config/wireshark/recent*
 .config/.task/*.data
 .config/.task/*.tar.gz
 .config/tint2/result.txt
+.config/mutt/.mbsyncrc
 
 # Editor/session noise
 .viminfo

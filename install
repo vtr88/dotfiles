@@ -6,14 +6,16 @@ backup_dir="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 
 sudo apt update
 sudo apt install --no-install-recommends \
-    alacritty \
-    bash-completion \
     ca-certificates \
+    chafa \
     cmatrix \
     curl \
     diodon \
     dunst \
+    feh \
     firefox-esr \
+    ffmpegthumbnailer \
+    flameshot \
     fonts-firacode \
     fonts-roboto \
     git \
@@ -23,25 +25,22 @@ sudo apt install --no-install-recommends \
     lbdb \
     lightdm \
     lightdm-gtk-greeter \
+    lf \
     neomutt \
     neovim \
     network-manager-gnome \
     newsboat \
     nethack-console \
     nethack-x11 \
-    nitrogen \
-    openbox \
     papirus-icon-theme \
     pcmanfm \
     picom \
     policykit-1-gnome \
     python3-bs4 \
     python3-requests \
-    rofi \
-    rxvt-unicode \
     taskwarrior \
-    tint2 \
     tmux \
+    ueberzug \
     urlscan \
     volumeicon-alsa \
     wireguard-tools \
@@ -50,7 +49,8 @@ sudo apt install --no-install-recommends \
     xboard \
     xdotool \
     xfce4-power-manager \
-    xsettingsd
+    xsettingsd \
+    zsh
 
 backup_target() {
     target=$1
@@ -72,25 +72,22 @@ install_path() {
 
 paths='
 .Xresources
-.bash_profile
-.bashrc
+.xinitrc
+.zshrc
 .config/.task
-.config/alacritty
 .config/dunst
+.config/feh
 .config/git
 .config/greek.sh
 .config/gtk-3.0
 .config/irssi
+.config/lf
 .config/mimeapps.list
 .config/mutt
 .config/newsboat
 .config/nvim
-.config/openbox
 .config/picom
-.config/rofi
-.config/tint2
 .config/tmux
-.config/urxvtext
 .gtkrc-2.0
 .keynavrc
 .nethackrc
@@ -102,9 +99,9 @@ for path in $paths; do
     install_path "$path"
 done
 
-chmod +x "$HOME/.config/greek.sh" "$HOME/.config/tint2/bicho.py" || true
-chmod +x "$HOME/.config/urxvtext/font-size" "$HOME/.config/urxvtext/font-zoom" "$HOME/.config/urxvtext/resize-font" || true
+chmod +x "$HOME/.xinitrc" "$HOME/.config/greek.sh" || true
+chmod +x "$HOME/.config/lf/preview" "$HOME/.config/lf/cleaner" "$HOME/.config/lf/lfub" || true
 
 printf '\nInstalled dotfiles into %s\n' "$HOME"
 printf 'Backups, if any, were written to %s\n' "$backup_dir"
-printf 'Mail, IRC, and private feed credentials are intentionally REDACTED in this repo. Restore private values locally after install.\n'
+printf 'Mail sync credentials are intentionally not tracked. Restore private mbsync config locally after install.\n'
