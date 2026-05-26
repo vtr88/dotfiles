@@ -73,7 +73,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 40
+    transparency = 6
     
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -128,7 +128,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    separator_color = "#504945"
     
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
@@ -149,7 +149,7 @@
 
 [frame]
     width = 2
-    color = "#000000"
+    color = "#a89984"
 
 [shortcuts]
     # Shortcuts are specified as [modifier+][modifier+]...key
@@ -174,18 +174,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#000000"
-    foreground = "#ffffff"
+    background = "#32302f"
+    foreground = "#d5c4a1"
     timeout = 4
 
 [urgency_normal]
-    background = "#000000"
-    foreground = "#ffffff"
+    background = "#282828"
+    foreground = "#ebdbb2"
     timeout = 4
 
 [urgency_critical]
-    background = "#ff0000"
-    foreground = "#ffffff"
+    background = "#cc241d"
+    foreground = "#fbf1c7"
     timeout = 0
 
 
