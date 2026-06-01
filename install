@@ -46,6 +46,8 @@ sudo apt install --no-install-recommends \
     xdotool \
     xfce4-power-manager \
     xsettingsd \
+    fzf \
+    zoxide \
     zsh
 
 backup_target() {

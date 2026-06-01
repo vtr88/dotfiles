@@ -46,6 +46,9 @@ if command -v dircolors >/dev/null 2>&1; then
 	fi
 fi
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 # Completion nativa do zsh.
 autoload -Uz compinit
 mkdir -p "$HOME/.cache/zsh"
@@ -72,6 +75,9 @@ alias irssi='irssi --home=~/.config/irssi/'
 alias playball='TERM=xterm-256color playball'
 alias pathos='cd "$HOME/Documentos/gamedev/pathos" && /usr/local/bin/nvim .'
 alias lf='$HOME/.config/lf/lfub'
+
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
 ok() {
 	main &&
