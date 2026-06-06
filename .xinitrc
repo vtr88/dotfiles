@@ -12,7 +12,6 @@ start_process() {
 }
 
 # session services
-pkill -x stalonetray >/dev/null 2>&1
 start_process nm-applet nm-applet
 start_once /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 "$HOME/.config/feh/fehbg" &
@@ -23,9 +22,7 @@ start_once xsettingsd
 start_process diodon diodon
 start_process flameshot flameshot
 start_process volumeicon volumeicon
-keynav_bin=$HOME/.local/bin/keynav
-[ -x "$keynav_bin" ] || keynav_bin=keynav
-pgrep -x keynav >/dev/null 2>&1 || "$keynav_bin" daemonize
+start_process keynav /usr/local/bin/keynav daemonize
 start_process slstatus /usr/local/bin/slstatus
 xset s off &
 xset -dpms &
