@@ -23,7 +23,9 @@ start_once xsettingsd
 start_process diodon diodon
 start_process flameshot flameshot
 start_process volumeicon volumeicon
-pgrep -x keynav >/dev/null 2>&1 || keynav daemonize
+keynav_bin=$HOME/.local/bin/keynav
+[ -x "$keynav_bin" ] || keynav_bin=keynav
+pgrep -x keynav >/dev/null 2>&1 || "$keynav_bin" daemonize
 start_process slstatus /usr/local/bin/slstatus
 xset s off &
 xset -dpms &
