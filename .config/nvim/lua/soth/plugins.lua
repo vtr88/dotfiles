@@ -97,6 +97,22 @@ function M.setup(root, runners)
         },
 
         {
+            "sindrets/diffview.nvim",
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                "nvim-tree/nvim-web-devicons",
+            },
+            cmd = {
+                "DiffviewOpen",
+                "DiffviewClose",
+                "DiffviewFileHistory",
+                "DiffviewFocusFiles",
+                "DiffviewRefresh",
+                "DiffviewToggleFiles",
+            },
+        },
+
+        {
             "neovim/nvim-lspconfig",
             config = function()
                 vim.lsp.config("lua_ls", {
