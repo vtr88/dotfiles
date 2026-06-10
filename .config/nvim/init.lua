@@ -266,21 +266,29 @@ local function restore_last_diff_source()
     end
 end
 
-local function diff_current_file_with_previous_commit()
+local function diff_current_file_with_previous_commit(depth)
+    depth = tonumber(depth) or vim.v.count1
+    if depth < 1 then
+        depth = 1
+    end
+
     local path = current_file()
     if not path then
         return
     end
 
     local repo_root = git_root(path)
-    if not repo_root or not has_revision(repo_root, "HEAD~1") then
+    local revision = "HEAD~" .. depth
+
+    if not repo_root or not has_revision(repo_root, revision) then
         return
     end
 
     local file = relative_path(repo_root, path)
     local command = string.format(
-        "DiffviewOpen -C%s HEAD~1..HEAD -- %s",
+        "DiffviewOpen -C%s %s..HEAD -- %s",
         vim.fn.fnameescape(repo_root),
+        revision,
         vim.fn.fnameescape(file)
     )
 
@@ -604,6 +612,11 @@ map("n", "<leader>r", run_project, "Run project")
 map("n", "<leader>c", close_diffview_and_restore_file, "Close Diffview and restore file", { nowait = true })
 map("n", "<leader>d", run_game_debug_fallback, "Run LOVE debug fallback")
 map("n", "<leader>v", diff_current_file_with_previous_commit, "Diff file against previous commit")
+for depth = 2, 99 do
+    map("n", "<leader>" .. depth .. "v", function()
+        diff_current_file_with_previous_commit(depth)
+    end, "Diff file against " .. depth .. " previous commits")
+end
 map("n", "<leader>p", parse_lua, "Parse Lua files")
 map("n", "<leader>h", ":nohlsearch<CR>", "Clear search highlight")
 map("n", "<leader>x", function()
@@ -616,7 +629,6 @@ end, "Fechar quickfix/location list")
 -- ============================================================================
 
 local commands = {
-    DiffHeadFile = diff_current_file_with_previous_commit,
     HugoPreview = run_hugo_preview,
     LoveDebug = run_game_debug_fallback,
     LoveRun = run_game,
@@ -627,3 +639,7 @@ local commands = {
 for name, fn in pairs(commands) do
     vim.api.nvim_create_user_command(name, fn, {})
 end
+
+vim.api.nvim_create_user_command("DiffHeadFile", function(args)
+    diff_current_file_with_previous_commit(args.args)
+end, { nargs = "?" })
