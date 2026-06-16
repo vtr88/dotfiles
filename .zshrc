@@ -74,6 +74,7 @@ alias vim='nvim'
 alias irssi='irssi --home=~/.config/irssi/'
 alias playball='TERM=xterm-256color playball'
 alias pathos='cd "$HOME/Documentos/gamedev/pathos" && /usr/local/bin/nvim .'
+alias fortress='cd /home/soth/Downloads/df_linux && tmux rename-window fortress && tmux set-window-option window-size latest && ./df'
 alias lf='$HOME/.config/lf/lfub'
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
@@ -135,3 +136,8 @@ _set_prompt() {
 }
 
 precmd_functions+=(_set_prompt)
+
+# Android build tools
+export JAVA_HOME="$HOME/.local/share/jdks/temurin-17"
+export ANDROID_HOME="$HOME/.local/share/android-sdk"
+export PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/34.0.0:$PATH"

@@ -606,8 +606,94 @@ require("lazy").setup({
 -- Atalhos globais
 -- ============================================================================
 
+local function show_personal_help()
+    local lines = {
+        "MEUS ATALHOS",
+        "",
+        "Arquivos e busca",
+        "  ,f        buscar arquivo",
+        "  ,g        buscar texto",
+        "  ,b        listar buffers",
+        "  Alt-d     fechar buffer selecionado no ,b",
+        "  ,k        listar todos os atalhos do Vim/Telescope",
+        "",
+        "Projeto",
+        "  F5        rodar projeto",
+        "  ,r        rodar projeto",
+        "  ,p        validar Lua com make/quickfix",
+        "",
+        "Git / Diffview",
+        "  ,v        diff do arquivo atual contra HEAD~1",
+        "  ,2v       diff do arquivo atual contra HEAD~2",
+        "  ,3v       diff do arquivo atual contra HEAD~3",
+        "  ,c        fechar Diffview e voltar ao arquivo original",
+        "  :DiffHeadFile N    mesmo diff, usando N commits atras",
+        "",
+        "LSP",
+        "  gd        ir para definicao",
+        "  gr        referencias",
+        "  K         hover/documentacao",
+        "  ,rn       renomear simbolo",
+        "  ,ca       code action",
+        "  ,q        lista de diagnosticos",
+        "",
+        "Debug",
+        "  F4        terminar debug",
+        "  F6        debug LOVE",
+        "  F8        focar REPL",
+        "  F9        toggle breakpoint",
+        "  F10/F11/F12 step over/into/out",
+        "  ,dc       continuar",
+        "  ,dr       focar REPL",
+        "  ,du       alternar DAP UI",
+        "",
+        "Janelas e limpeza",
+        "  F2        abrir/fechar arvore de arquivos",
+        "  ,h        limpar highlight de busca",
+        "  ,x        fechar quickfix/location list",
+        "",
+        "Fechar esta ajuda: q ou Esc",
+    }
+
+    local width = 64
+    local height = math.min(#lines, math.max(12, vim.o.lines - 6))
+    local row = math.floor((vim.o.lines - height) / 2)
+    local col = math.floor((vim.o.columns - width) / 2)
+    local buf = vim.api.nvim_create_buf(false, true)
+
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+    vim.bo[buf].bufhidden = "wipe"
+    vim.bo[buf].modifiable = false
+    vim.bo[buf].filetype = "help"
+
+    local win = vim.api.nvim_open_win(buf, true, {
+        relative = "editor",
+        width = width,
+        height = height,
+        row = row,
+        col = col,
+        style = "minimal",
+        border = "rounded",
+        title = " Atalhos ",
+        title_pos = "center",
+    })
+
+    vim.wo[win].cursorline = true
+    vim.wo[win].wrap = false
+
+    local function close_help()
+        if vim.api.nvim_win_is_valid(win) then
+            vim.api.nvim_win_close(win, true)
+        end
+    end
+
+    map("n", "q", close_help, "Fechar ajuda", { buffer = buf, nowait = true })
+    map("n", "<Esc>", close_help, "Fechar ajuda", { buffer = buf, nowait = true })
+end
+
 map("n", "<F2>", ":Neotree toggle<CR>", "Toggle file tree")
 map("n", "<F5>", run_project, "Run project")
+map("n", "<leader>?", show_personal_help, "Mostrar meus atalhos")
 map("n", "<leader>r", run_project, "Run project")
 map("n", "<leader>c", close_diffview_and_restore_file, "Close Diffview and restore file", { nowait = true })
 map("n", "<leader>d", run_game_debug_fallback, "Run LOVE debug fallback")
