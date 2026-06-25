@@ -1,9 +1,9 @@
 #include /usr/share/doc/newsboat/contrib/colorschemes/kinda-maia
 #browser "surf -F -z 1.5"
-browser firefox-esr
+browser "/home/soth/.config/newsboat/open-url"
 max-items 34
 auto-reload yes
-macro v set browser "setsid -f mpv --fs --script-opts=ytdl_hook-ytdl_path=yt-dlp" ; open-in-browser ; set browser
+macro v set browser "setsid -f mpv --no-fullscreen --geometry=640x480 --script-opts=ytdl_hook-ytdl_path=yt-dlp" ; open-in-browser ; set browser
 macro c set browser "setsid -f mpv" ; one ; set browser
 macro x set browser "surf -F -z 1.5"
 #color background          color223   color0
@@ -24,23 +24,24 @@ macro x set browser "surf -F -z 1.5"
 
 
 color background default default
-color listnormal color255 default
-color listfocus color238 color255 standout
-color listnormal_unread color47 default
-color listfocus_unread color238 color47 standout
-color info color141 color236
+color listnormal color7 default
+color listnormal_unread color11 default bold
+color listfocus color15 color8 bold
+color listfocus_unread color15 color8 bold
+color info color15 color0 bold
+color article color15 default
 
 # highlights
-highlight all "---.*---" yellow
-highlight feedlist ".*(0/0))" black
-highlight article "(^Feed:|^Title:|^Date:|^Link:|^Author:)" cyan default bold
-highlight article "https?://[^ ]+" yellow default
-highlight article "\\[[0-9][0-9]*\\]" magenta default bold
-highlight article "\\[image\\ [0-9]+\\]" green default bold
-highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
-highlight article ":.*\\(link\\)$" cyan default
-highlight article ":.*\\(image\\)$" blue default
-highlight article ":.*\\(embedded flash\\)$" magenta default
+highlight all "---.*---" color11 default bold
+highlight feedlist ".*(0/0))" color8 default
+highlight article "(^Feed:|^Title:|^Date:|^Link:|^Author:)" color14 default bold
+highlight article "https?://[^ ]+" color11 default
+highlight article "\\[[0-9][0-9]*\\]" color13 default bold
+highlight article "\\[image\\ [0-9]+\\]" color10 default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" color10 default bold
+highlight article ":.*\\(link\\)$" color14 default
+highlight article ":.*\\(image\\)$" color12 default
+highlight article ":.*\\(embedded flash\\)$" color13 default
 
 unbind-key j
 unbind-key k

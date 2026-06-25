@@ -1,0 +1,61 @@
+#!/bin/sh
+
+url=$1
+
+download_patreon_audio() {
+	sql_url=$(printf '%s' "$url" | sed "s/'/''/g")
+
+	for db in "$HOME/.config/newsboat/cache.db" "$HOME/.local/share/newsboat/cache.db"; do
+		[ -r "$db" ] || continue
+		row=$(sqlite3 -batch -separator '|' "$db" "select enclosure_url, title from rss_item where url = '$sql_url' and enclosure_url <> '' order by id desc limit 1;" 2>/dev/null)
+		[ -n "$row" ] && break
+	done
+
+	[ -n "$row" ] || return 1
+
+	media_url=${row%%|*}
+	title=${row#*|}
+	ext=${media_url%%\?*}
+	ext=${ext##*.}
+
+	case "$ext" in
+		mp3|wav|flac|ogg|m4a) ;;
+		*) ext=mp3 ;;
+	esac
+
+	name=$(printf '%s' "$title" |
+		tr '/\r\n\t' '    ' |
+		tr -cd '[:alnum:][:space:].,_()+&-:' |
+		sed 's/^ *//; s/ *$//; s/  */ /g')
+	[ -n "$name" ] || name=$(basename "${url%%\?*}")
+
+	target_dir=$HOME/Media/fmp
+	target=$target_dir/$name.$ext
+	tmp=$target.part
+
+	mkdir -p "$target_dir" || exit 1
+
+	if [ -e "$target" ]; then
+		printf 'Already downloaded: %s\n' "$target" >&2
+		exit 0
+	fi
+
+	(
+		curl -L --fail --continue-at - --output "$tmp" "$media_url" &&
+			mv "$tmp" "$target"
+	) >>"$target_dir/download.log" 2>&1 &
+
+	printf 'Downloading: %s\n' "$target" >&2
+}
+
+case "$url" in
+	*youtube.com/*|*youtu.be/*)
+		exec setsid -f mpv --no-fullscreen --geometry=640x480 --script-opts=ytdl_hook-ytdl_path=yt-dlp "$url"
+		;;
+	*patreon.com/posts/*)
+		download_patreon_audio || exec firefox-esr "$url"
+		;;
+	*)
+		exec firefox-esr "$url"
+		;;
+esac
