@@ -1,17 +1,24 @@
 #!/bin/sh
 
 url=$1
+mpv_ytdl_format='bv*[height<=480]+ba/b[height<=480]/b'
 
 download_patreon_audio() {
 	sql_url=$(printf '%s' "$url" | sed "s/'/''/g")
+	post_id=${url%%\?*}
+	post_id=${post_id%/}
+	post_id=${post_id##*-}
 
-	for db in "$HOME/.config/newsboat/cache.db" "$HOME/.local/share/newsboat/cache.db"; do
+	for db in "$HOME/.local/share/newsboat/cache.db" "$HOME/.config/newsboat/cache.db"; do
 		[ -r "$db" ] || continue
-		row=$(sqlite3 -batch -separator '|' "$db" "select enclosure_url, title from rss_item where url = '$sql_url' and enclosure_url <> '' order by id desc limit 1;" 2>/dev/null)
+		row=$(sqlite3 -batch -separator '|' "$db" "select enclosure_url, title from rss_item where (url = '$sql_url' or url like '%-$post_id') and enclosure_url <> '' order by id desc limit 1;" 2>/dev/null)
 		[ -n "$row" ] && break
 	done
 
-	[ -n "$row" ] || return 1
+	[ -n "$row" ] || {
+		printf 'No Patreon enclosure found for: %s\n' "$url" >&2
+		return 1
+	}
 
 	media_url=${row%%|*}
 	title=${row#*|}
@@ -34,6 +41,7 @@ download_patreon_audio() {
 	tmp=$target.part
 
 	mkdir -p "$target_dir" || exit 1
+	printf 'Patreon URL: %s\n' "$url" >>"$target_dir/download.log"
 
 	if [ -e "$target" ]; then
 		printf 'Already downloaded: %s\n' "$target" >&2
@@ -50,9 +58,9 @@ download_patreon_audio() {
 
 case "$url" in
 	*youtube.com/*|*youtu.be/*)
-		exec setsid -f mpv --no-fullscreen --geometry=640x480 --script-opts=ytdl_hook-ytdl_path=yt-dlp "$url"
+		exec setsid -f mpv --no-fullscreen --geometry=640x480 --ytdl-format="$mpv_ytdl_format" --script-opts=ytdl_hook-ytdl_path=yt-dlp "$url"
 		;;
-	*patreon.com/posts/*)
+	*patreon.com*/posts/*)
 		download_patreon_audio || exec firefox-esr "$url"
 		;;
 	*)

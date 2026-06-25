@@ -3,7 +3,7 @@
 browser "/home/soth/.config/newsboat/open-url"
 max-items 34
 auto-reload yes
-macro v set browser "setsid -f mpv --no-fullscreen --geometry=640x480 --script-opts=ytdl_hook-ytdl_path=yt-dlp" ; open-in-browser ; set browser
+macro v set browser "setsid -f mpv --no-fullscreen --geometry=640x480 --ytdl-format='bv*[height<=480]+ba/b[height<=480]/b' --script-opts=ytdl_hook-ytdl_path=yt-dlp" ; open-in-browser ; set browser
 macro c set browser "setsid -f mpv" ; one ; set browser
 macro x set browser "surf -F -z 1.5"
 #color background          color223   color0
