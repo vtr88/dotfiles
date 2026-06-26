@@ -24,7 +24,7 @@
 # Use 'daemonize' to background ourselves.
 #daemonize
 
-ctrl+semicolon start
+ctrl+ccedilla start
 Escape end
 ctrl+bracketleft end
 h cut-left
@@ -50,6 +50,7 @@ semicolon warp,end
 3 click 3
 4 warp,click 4
 5 warp,click 5
+d drag 1
 
 # Zoom to the current window
 w windowzoom
