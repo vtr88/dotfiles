@@ -76,6 +76,8 @@ alias playball='TERM=xterm-256color playball'
 alias pathos='cd "$HOME/Documentos/gamedev/pathos" && /usr/local/bin/nvim .'
 alias fortress='cd /home/soth/Downloads/df_linux && tmux rename-window fortress && tmux set-window-option window-size latest && ./df'
 alias lf='$HOME/.config/lf/lfub'
+alias hf="tmux rename-window nethack && ssh nethack@us.hardfought.org "
+alias copy='xclip -selection clipboard'
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
@@ -86,9 +88,9 @@ ok() {
 	tmux new-window -n irssi 'irssi --home="$HOME/.config/irssi/"' &&
 	tmux new-window -n newsboat 'newsboat' &&
 	tmux new-window -n jopy 'joplin' &&
-	tmux new-window -n codex 'codex' &&
+	#tmux new-window -n codex 'codex' &&
 	tmux new-window -n nethack 'ssh nethack@us.hardfought.org' &&
-	tmux new-window -n pathos "zsh -lc 'cd \"$HOME/Documentos/gamedev/pathos\" && nvim .'" &&
+	#tmux new-window -n pathos "zsh -lc 'cd \"$HOME/Documentos/gamedev/pathos\" && nvim .'" &&
 	tmux next-window
 }
 
