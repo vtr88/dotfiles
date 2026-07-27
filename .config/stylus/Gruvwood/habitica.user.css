@@ -1,0 +1,214 @@
+/* ==UserStyle==
+@name           Gruvwood — Habitica
+@namespace      https://github.com/vtr88/dotfiles
+@version        1.0.3
+@description    Madeira, oliva e laranja para o Habitica, preservando as cores funcionais das tarefas.
+@author         vtr88
+@homepageURL    https://github.com/vtr88/dotfiles
+@updateURL      https://raw.githubusercontent.com/vtr88/dotfiles/master/.config/stylus/Gruvwood/habitica.user.css
+==/UserStyle== */
+
+@-moz-document domain("habitica.com") {
+	html,
+	body,
+	#app,
+	.bg-gray-700 {
+		background: #2e2821 !important;
+		color: #d5c4a1 !important;
+	}
+
+	.header-wrap,
+	.top-menu,
+	.navbar,
+	[class*="header-dark"],
+	.bg-purple-100 {
+		background-color: #241f1a !important;
+		color: #fbf1c7 !important;
+	}
+
+	#app-header {
+		background: #342e25 !important;
+		border-bottom: 1px solid #53483a !important;
+		color: #d5c4a1 !important;
+	}
+
+	#app-header .view-party {
+		background-image: linear-gradient(
+			to right,
+			rgb(52 46 37 / 0),
+			#342e25
+		) !important;
+	}
+
+	.tasks-page,
+	.tasks-page .container-fluid,
+	.user-tasks-page,
+	.user-tasks-page .container-fluid,
+	.profile-background,
+	.stats-row,
+	.quest-section,
+	[class*="avatar-background"],
+	[class*="quest-section"],
+	[class*="stats-row"],
+	.bg-gray-600,
+	.bg-gray-500 {
+		background-color: #342e25 !important;
+		color: #d5c4a1 !important;
+	}
+
+	.standard-page,
+	.tasks-navigation,
+	.tasks-column {
+		background-color: #342e25 !important;
+	}
+
+	.tasks-list {
+		background-color: #2e2821 !important;
+		border: 1px solid #53483a !important;
+	}
+
+	.task,
+	.task-content {
+		background-color: #4a3928 !important;
+		color: #ebdbb2 !important;
+	}
+
+	.task:hover,
+	.task:focus-within {
+		outline-color: #ff9f3f !important;
+	}
+
+	.task-title,
+	.column-title {
+		color: #fbf1c7 !important;
+	}
+
+	.task-notes,
+	.task .icons,
+	.column-background h3,
+	.column-background .small-text {
+		color: #a89984 !important;
+	}
+
+	.quick-add {
+		background-color: #453c30 !important;
+		border-color: #53483a !important;
+		color: #d5c4a1 !important;
+	}
+
+	.quick-add:hover,
+	.quick-add:focus {
+		background-color: #53483a !important;
+	}
+
+	.standard-sidebar,
+	.card:not(.task),
+	.item,
+	.modal-content,
+	.modal-header,
+	.modal-body,
+	.modal-footer,
+	.dropdown-menu,
+	.custom-select,
+	select,
+	input:not([type="checkbox"]):not([type="radio"]),
+	textarea {
+		background-color: #4a3928 !important;
+		border-color: #53483a !important;
+		color: #ebdbb2 !important;
+	}
+
+	.card-header,
+	.card-footer,
+	[class*="box-shadow"],
+	[class*="toolbar"] {
+		background-color: #342e25 !important;
+		border-color: #53483a !important;
+	}
+
+	.bg-gray-100,
+	.bg-gray-200,
+	.bg-gray-300,
+	.bg-gray-400,
+	[class*="bg-gray-1"],
+	[class*="bg-gray-2"],
+	[class*="bg-gray-3"],
+	[class*="bg-grey-"] {
+		background-color: #453c30 !important;
+	}
+
+	.page-header,
+	.purple-200,
+	.purple-300,
+	a,
+	.btn-link {
+		color: #bdca58 !important;
+	}
+
+	a:hover,
+	.btn-link:hover,
+	.page-header:hover {
+		color: #ff9f3f !important;
+	}
+
+	.btn-primary,
+	.btn-success {
+		background: #f28c38 !important;
+		border-color: #ff9f3f !important;
+		color: #241f1a !important;
+		--icon-color: #241f1a !important;
+	}
+
+	.btn-primary:hover,
+	.btn-primary:focus,
+	.btn-success:hover,
+	.btn-success:focus {
+		background: #ff9f3f !important;
+		border-color: #ffb347 !important;
+		color: #241f1a !important;
+	}
+
+	.btn-secondary {
+		background: #453c30 !important;
+		border-color: #756653 !important;
+		color: #d5c4a1 !important;
+	}
+
+	.popover {
+		background-color: #241f1af5 !important;
+		border-color: #53483a !important;
+	}
+
+	.drawer-wrapper,
+	.spell-container,
+	.popover-header,
+	.popover-body,
+	.popover-title,
+	.popover-description {
+		background-color: #342e25 !important;
+		border-color: #53483a !important;
+		color: #d5c4a1 !important;
+	}
+
+	.popover-body,
+	.text-muted,
+	.gray-200,
+	.gray-300 {
+		color: #a89984 !important;
+	}
+
+	/* As classes task-* continuam com as cores de dificuldade do Habitica. */
+	[class*="task-"] input,
+	[class*="task-"] textarea {
+		background-color: transparent !important;
+	}
+
+	::selection {
+		background: #756653;
+		color: #fbf1c7;
+	}
+
+	:focus-visible {
+		outline-color: #ff9f3f !important;
+	}
+}

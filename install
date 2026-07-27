@@ -146,6 +146,7 @@ paths='
 .config/picom
 .config/Renoise/V3.5.4/Themes/Gruvwood.xrnc
 .config/spicetify/Themes/Gruvwood
+.config/stylus/Gruvwood
 .config/tmux
 .gtkrc-2.0
 .nethackrc

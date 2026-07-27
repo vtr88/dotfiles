@@ -1,0 +1,96 @@
+/* ==UserStyle==
+@name           Gruvwood — Lichess
+@namespace      https://github.com/vtr88/dotfiles
+@version        1.0.0
+@description    Madeira, oliva, floresta e laranja para o Lichess.
+@author         vtr88
+@homepageURL    https://github.com/vtr88/dotfiles
+@updateURL      https://raw.githubusercontent.com/vtr88/dotfiles/master/.config/stylus/Gruvwood/lichess.user.css
+==/UserStyle== */
+
+@-moz-document domain("lichess.org") {
+	html,
+	html.dark,
+	html.light,
+	html.transp {
+		---site-hue: 34deg;
+
+		--c-bg: #3a3328;
+		--c-bg-box: #3a3328;
+		--c-bg-high: #453c30;
+		--c-page-input: #342e25;
+		--c-bg-mid: #453c30;
+		--c-bg-low: #53483a;
+		--c-bg-popup: #453c30;
+		--c-bg-page: #2e2821;
+		--c-bg-zebra: #342e25;
+		--c-bg-zebra2: #453c30;
+		--c-bg-header-dropdown: #453c30;
+		--c-bg-input: #2e2821;
+		--c-bg-variation: #342e25;
+		--c-bg-opaque: #3a3328;
+		--c-body-gradient: #453c30;
+
+		--c-font: #d5c4a1;
+		--c-font-dim: #a89984;
+		--c-font-dimmer: #756653;
+		--c-font-clear: #ebdbb2;
+		--c-font-clearer: #fbf1c7;
+		--c-font-page: #a89984;
+		--c-header-dropdown: #d5c4a1;
+
+		--c-primary: #ff9f3f;
+		--c-primary-dim: #d27d32;
+		--c-primary-clear: #ffb347;
+		--c-link: #ff9f3f;
+		--c-link-dim: #d27d32;
+		--c-link-clear: #ffb347;
+
+		--c-secondary: #96a542;
+		--c-secondary-dim: #7f8f38;
+		--c-secondary-dimmer: #68772f;
+		--c-good: #96a542;
+		--c-good-move: #bdca58;
+		--c-dasher: #96a542;
+		--c-dasher-light: #68772f;
+
+		--c-accent: #edbd4f;
+		--c-accent-dim: #d2a442;
+		--c-accent-faint: rgb(237 189 79 / 0.4);
+		--c-accent-clear: #ffd27a;
+		--c-accent-glass: rgb(237 189 79 / 0.2);
+		--c-accent-cloud: rgb(237 189 79 / 0.5);
+		--c-brag: #ffb347;
+		--c-brag-hover: #ffd27a;
+		--c-fancy: #bdca58;
+
+		--c-border: #53483a;
+		--c-border-page: #342e25;
+		--c-border-light: #756653;
+		--c-shade: #756653;
+		--c-dark: #241f1a;
+		--c-dimmer: #241f1a;
+		--c-bad: #c65d3b;
+		--c-error: #c65d3b;
+		--c-live: #f28c38;
+		--c-warn: #ffb347;
+
+		--c-chat-host-bg: rgb(150 165 66 / 0.32);
+		--c-chat-mention-bg: rgb(237 189 79 / 0.28);
+		--c-page-mask: rgb(36 31 26 / 0.72);
+		--c-metal-top: #53483a;
+		--c-metal-bottom: #453c30;
+		--c-metal-top-hover: #675847;
+		--c-metal-bottom-hover: #53483a;
+		--c-pool-button: rgb(69 60 48 / 0.8);
+	}
+
+	::selection {
+		background: #756653;
+		color: #fbf1c7;
+	}
+
+	:focus-visible {
+		outline-color: #ff9f3f !important;
+	}
+}

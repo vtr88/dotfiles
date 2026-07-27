@@ -1,0 +1,181 @@
+/* ==UserStyle==
+@name           Gruvwood — Last.fm
+@namespace      https://github.com/vtr88/dotfiles
+@version        1.0.3
+@description    Madeira escura, floresta e abóbora para o Last.fm.
+@author         vtr88
+@homepageURL    https://github.com/vtr88/dotfiles
+@updateURL      https://raw.githubusercontent.com/vtr88/dotfiles/master/.config/stylus/Gruvwood/lastfm.user.css
+==/UserStyle== */
+
+@-moz-document domain("last.fm") {
+	:root {
+		--clr-black: #241f1a !important;
+		--clr-obsidian: #2e2821 !important;
+		--clr-mineshaft: #342e25 !important;
+		--clr-soot: #3a3328 !important;
+		--clr-charcoal: #453c30 !important;
+		--clr-graphite: #756653 !important;
+		--clr-slate: #a89984 !important;
+		--clr-cement: #d5c4a1 !important;
+		--clr-ash: #d5c4a1 !important;
+		--clr-silver: #ebdbb2 !important;
+		--clr-smog: #453c30 !important;
+		--clr-fog: #53483a !important;
+		--clr-lunar: #453c30 !important;
+		--clr-dust: #53483a !important;
+		--clr-platinum: #3a3328 !important;
+		--clr-white: #fbf1c7 !important;
+		--clr-postbox: #f28c38 !important;
+		--clr-habanero: #ff9f3f !important;
+		--clr-sangria: #c65d3b !important;
+		--clr-tangerine: #f28c38 !important;
+		--clr-fire: #ff9f3f !important;
+		--clr-carrot: #ffb347 !important;
+		--clr-merigold: #edbd4f !important;
+		--clr-squash: #d2a442 !important;
+		--clr-caramel: #b07d32 !important;
+		--clr-forest: #68772f !important;
+		--clr-fern: #96a542 !important;
+		--clr-jade: #bdca58 !important;
+		--clr-pistachio: #bdca58 !important;
+	}
+
+	html,
+	body {
+		background: #2e2821 !important;
+		color: #d5c4a1 !important;
+	}
+
+	.main-content,
+	.content-top,
+	.content-top-inner,
+	.content-top-lower,
+	.main-content > .container,
+	.content-top > .container,
+	.page-content,
+	.page-content > .container,
+	.user-dashboard-layout .container,
+	.user-dashboard-layout .main-content {
+		background-color: #3a3328 !important;
+		color: #d5c4a1 !important;
+	}
+
+	.user-dashboard-layout--version-3,
+	.user-dashboard-layout--version-4,
+	.user-dashboard-layout--version-5,
+	.user-dashboard-layout--version-3 .container,
+	.user-dashboard-layout--version-4 .container,
+	.user-dashboard-layout--version-5 .container,
+	.user-dashboard-layout--version-3 .main-content,
+	.user-dashboard-layout--version-4 .main-content,
+	.user-dashboard-layout--version-5 .main-content,
+	.user-dashboard,
+	.user-dashboard .container {
+		background-color: #3a3328 !important;
+		color: #d5c4a1 !important;
+	}
+
+	.main-content .row,
+	.main-content .col-main,
+	.main-content .col-sidebar,
+	.user-profile,
+	.user-profile-content,
+	.user-overview,
+	.user-dashboard .row,
+	.user-dashboard section,
+	.user-dashboard .col-main,
+	.user-dashboard .col-sidebar {
+		background-color: #342e25 !important;
+	}
+
+	.chartlist,
+	.chartlist-row,
+	.chartlist-row--now-scrobbling,
+	.about-me-sidebar,
+	.personal-stats,
+	.personal-stats-item,
+	.user-dashboard-col,
+	.user-dashboard-buffer,
+	.report-box-container {
+		background-color: #342e25 !important;
+		border-color: #53483a !important;
+	}
+
+	.chartlist-row:hover,
+	.chartlist-row--highlight {
+		background-color: #453c30 !important;
+	}
+
+	.chartlist-row--now-scrobbling {
+		box-shadow: inset 3px 0 #f28c38 !important;
+	}
+
+	.masthead,
+	.masthead-inner,
+	.player-bar,
+	.player-bar-v2 {
+		background-color: #241f1a !important;
+	}
+
+	.card-bg,
+	.modal-body,
+	.dropdown-menu-clickable,
+	.dropdown-menu-list,
+	.navlist-hidden-list,
+	.tooltip-light,
+	.share-block,
+	.calendar-icon {
+		background: #453c30 !important;
+		border-color: #53483a !important;
+		color: #d5c4a1 !important;
+	}
+
+	.btn-primary,
+	.btn-add,
+	.btn-add-sm,
+	.no-data-message-button,
+	.masthead-search-submit,
+	.chartlist-action-button,
+	.player-bar .player-bar-progress-slug,
+	.calendar-icon .calendar-icon-month {
+		background-color: #f28c38 !important;
+		color: #241f1a !important;
+	}
+
+	a,
+	.mimic-link {
+		color: #d5c4a1 !important;
+	}
+
+	.group-heading,
+	.sidebar-group-heading,
+	.pagination-page[aria-current],
+	.secondary-nav-item-link--active {
+		color: #bdca58 !important;
+	}
+
+	a:hover,
+	a:focus,
+	.mimic-link:hover,
+	.mimic-link:focus {
+		color: #ff9f3f !important;
+	}
+
+	input,
+	select,
+	textarea {
+		background: #342e25 !important;
+		border-color: #53483a !important;
+		color: #ebdbb2 !important;
+	}
+
+	::selection {
+		background: #756653;
+		color: #fbf1c7;
+	}
+
+	:focus-visible {
+		outline-color: #ff9f3f !important;
+	}
+}
