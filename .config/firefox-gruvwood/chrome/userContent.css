@@ -1,0 +1,20 @@
+/* Mantem apenas as paginas internas vazias alinhadas ao tema. */
+
+@-moz-document url-prefix("about:home"),
+               url-prefix("about:newtab"),
+               url("about:blank") {
+  :root {
+    --newtab-background-color: #3a3328 !important;
+    --newtab-background-color-secondary: #453c30 !important;
+    --newtab-text-primary-color: #ebdbb2 !important;
+    --newtab-text-secondary-color: #d5c4a1 !important;
+    --newtab-primary-action-background: #96a542 !important;
+    --newtab-primary-element-text-color: #2e2821 !important;
+  }
+
+  html,
+  body {
+    background: #3a3328 !important;
+    color: #ebdbb2 !important;
+  }
+}

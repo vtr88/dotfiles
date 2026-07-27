@@ -19,6 +19,10 @@ Arquivos
 - `.config/mutt`, `.config/newsboat` e `.config/irssi`: mail, feeds e IRC
   sem senhas.
 - `.config/keynav`: configuracao XDG do keynav.
+- `.config/firefox-gruvwood`: tema de interface do Firefox, instalado no perfil
+  ativo sem versionar dados pessoais do navegador.
+- `.config/aseprite/extensions/gruvwood-theme`: tema Gruvwood do Aseprite.
+- `.config/Renoise/V3.5.4/Themes/Gruvwood.xrnc`: tema Gruvwood do Renoise.
 - `.themes/Gruvbox`, `.gtkrc-2.0` e `.config/gtk-3.0`: tema GTK.
 - `.nethackrc` e `.nethackrcx11`: configuracao do NetHack.
 
@@ -41,6 +45,12 @@ Clone este repositorio e rode:
 O script copia os arquivos versionados para `$HOME` e salva backups em:
 
     ~/.dotfiles-backup/<timestamp>/
+
+No Firefox, o script descobre o perfil ativo, instala `userChrome.css` e
+`userContent.css` e habilita o carregamento desses arquivos. Feche e abra o
+navegador por completo para aplicar o tema. No Aseprite, o tema Gruvwood e
+selecionado quando ja existe um `aseprite.ini`. No Renoise, escolha
+`Gruvwood.xrnc` pela tela de temas depois da instalacao.
 
 Sessao X
 --------

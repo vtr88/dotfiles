@@ -1,0 +1,104 @@
+/*
+ * Gruvwood para Firefox ESR
+ * Madeira no fundo, oliva para foco e laranja para atividade.
+ */
+
+:root {
+  --lwt-accent-color: #2e2821 !important;
+  --lwt-text-color: #ebdbb2 !important;
+  --toolbar-bgcolor: #3a3328 !important;
+  --toolbar-color: #ebdbb2 !important;
+  --toolbar-field-background-color: #453c30 !important;
+  --toolbar-field-color: #fbf1c7 !important;
+  --toolbar-field-border-color: #756653 !important;
+  --toolbar-field-focus-background-color: #53483a !important;
+  --toolbar-field-focus-color: #fbf1c7 !important;
+  --toolbar-field-focus-border-color: #bdca58 !important;
+  --button-hover-bgcolor: #53483a !important;
+  --button-active-bgcolor: #756653 !important;
+  --tab-selected-bgcolor: #3a3328 !important;
+  --tab-selected-textcolor: #fbf1c7 !important;
+  --lwt-tab-text: #d5c4a1 !important;
+  --tab-loading-fill: #ff9f3f !important;
+  --focus-outline-color: #bdca58 !important;
+  --panel-background: #3a3328 !important;
+  --panel-color: #ebdbb2 !important;
+  --panel-border-color: #756653 !important;
+  --arrowpanel-background: #3a3328 !important;
+  --arrowpanel-color: #ebdbb2 !important;
+  --arrowpanel-border-color: #756653 !important;
+}
+
+#navigator-toolbox {
+  background: #2e2821 !important;
+  border-bottom: 1px solid #756653 !important;
+}
+
+#TabsToolbar,
+#nav-bar,
+#PersonalToolbar {
+  background-color: #3a3328 !important;
+}
+
+.tabbrowser-tab .tab-background {
+  background-color: #342d24 !important;
+}
+
+.tabbrowser-tab:hover .tab-background {
+  background-color: #53483a !important;
+}
+
+.tabbrowser-tab[selected] .tab-background {
+  background-color: #453c30 !important;
+  box-shadow: inset 0 -3px #bdca58 !important;
+}
+
+.tabbrowser-tab[selected] .tab-label {
+  color: #fbf1c7 !important;
+}
+
+#urlbar-background {
+  background-color: #453c30 !important;
+  border-color: #756653 !important;
+}
+
+#urlbar[focused] #urlbar-background {
+  background-color: #53483a !important;
+  border-color: #ff9f3f !important;
+  box-shadow: 0 0 0 1px #ff9f3f !important;
+}
+
+#identity-icon-box,
+#tracking-protection-icon-container {
+  color: #bdca58 !important;
+}
+
+toolbarbutton:hover,
+.subviewbutton:hover {
+  background-color: #53483a !important;
+  color: #ffb347 !important;
+}
+
+menupopup,
+panelview,
+panelmultiview,
+#sidebar-box,
+findbar {
+  --panel-background: #3a3328 !important;
+  --panel-color: #ebdbb2 !important;
+  background-color: #3a3328 !important;
+  color: #ebdbb2 !important;
+}
+
+menuitem[_moz-menuactive="true"],
+menu[_moz-menuactive="true"],
+.subviewbutton[open],
+.subviewbutton:focus {
+  background-color: #96a542 !important;
+  color: #2e2821 !important;
+}
+
+notification-message {
+  --info-bar-background-color: #453c30 !important;
+  --info-bar-text-color: #ebdbb2 !important;
+}

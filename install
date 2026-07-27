@@ -65,7 +65,64 @@ install_path() {
 
     backup_target "$dest"
     mkdir -p "$(dirname "$dest")"
-    cp -a "$repo_dir/$src" "$dest"
+
+    if [ -d "$repo_dir/$src" ]; then
+        mkdir -p "$dest"
+        cp -a "$repo_dir/$src/." "$dest/"
+    else
+        cp -a "$repo_dir/$src" "$dest"
+    fi
+}
+
+install_firefox_theme() {
+    profiles_ini=$HOME/.mozilla/firefox/profiles.ini
+
+    if [ ! -f "$profiles_ini" ]; then
+        printf 'Firefox profile not found; skipping Gruvwood browser theme.\n'
+        return
+    fi
+
+    profile_path=$(awk -F= '
+        /^\[Install/ { in_install = 1; next }
+        /^\[/ { in_install = 0 }
+        in_install && $1 == "Default" { print $2; exit }
+    ' "$profiles_ini")
+
+    if [ -z "$profile_path" ]; then
+        profile_path=$(awk -F= '
+            /^\[Profile/ { in_profile = 1; path = ""; is_default = 0; next }
+            /^\[/ {
+                if (in_profile && is_default && path != "") {
+                    print path
+                    exit
+                }
+                in_profile = 0
+            }
+            in_profile && $1 == "Path" { path = $2 }
+            in_profile && $1 == "Default" && $2 == "1" { is_default = 1 }
+            END {
+                if (in_profile && is_default && path != "") {
+                    print path
+                }
+            }
+        ' "$profiles_ini")
+    fi
+
+    if [ -z "$profile_path" ]; then
+        printf 'Firefox default profile not found; skipping Gruvwood browser theme.\n'
+        return
+    fi
+
+    case "$profile_path" in
+        /*) profile_dir=$profile_path ;;
+        *)  profile_dir=$HOME/.mozilla/firefox/$profile_path ;;
+    esac
+
+    backup_target "$profile_dir/chrome"
+    backup_target "$profile_dir/user.js"
+    mkdir -p "$profile_dir/chrome"
+    cp -a "$repo_dir/.config/firefox-gruvwood/chrome/." "$profile_dir/chrome/"
+    cp -a "$repo_dir/.config/firefox-gruvwood/user.js" "$profile_dir/user.js"
 }
 
 paths='
@@ -73,6 +130,7 @@ paths='
 .xinitrc
 .zshrc
 .config/.task
+.config/aseprite/extensions/gruvwood-theme
 .config/dunst
 .config/feh
 .config/git
@@ -86,6 +144,7 @@ paths='
 .config/newsboat
 .config/nvim
 .config/picom
+.config/Renoise/V3.5.4/Themes/Gruvwood.xrnc
 .config/tmux
 .gtkrc-2.0
 .nethackrc
@@ -96,6 +155,13 @@ paths='
 for path in $paths; do
     install_path "$path"
 done
+
+install_firefox_theme
+
+aseprite_ini=$HOME/.config/aseprite/aseprite.ini
+if [ -f "$aseprite_ini" ]; then
+    sed -i '/^\[theme\]$/,/^\[/ s/^selected = .*/selected = Gruvwood/' "$aseprite_ini"
+fi
 
 chmod +x "$HOME/.xinitrc" "$HOME/.config/greek.sh" || true
 chmod +x "$HOME/.config/lf/preview" "$HOME/.config/lf/cleaner" "$HOME/.config/lf/lfub" || true
