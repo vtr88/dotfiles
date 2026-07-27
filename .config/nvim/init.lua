@@ -61,8 +61,8 @@ local value_options = {
     colorcolumn = "100",
     signcolumn = "yes",
     updatetime = 250,
-    makeprg = "luac -p main.lua global.lua conf.lua src/state/*.lua src/entity/*.lua src/data/*.lua src/lib/*.lua",
-    errorformat = "%f:%l: %m",
+    makeprg = "luac -p main.lua global.lua conf.lua src/state/*.lua src/entity/*.lua src/data/*.lua src/lib/*.lua src/lib/sti/*.lua",
+    errorformat = "luac: %f:%l: %m",
 }
 
 for name, value in pairs(value_options) do
@@ -70,7 +70,8 @@ for name, value in pairs(value_options) do
 end
 
 opt.compatible = false
-opt.swapfile = false
+opt.swapfile = true
+opt.undofile = true
 opt.path:append("**")
 
 vim.cmd("syntax enable")
@@ -315,6 +316,58 @@ require("lazy").setup({
         "ellisonleao/gruvbox.nvim",
         priority = 1000,
         config = function()
+            require("gruvbox").setup({
+                -- Mais claro e vivo, mas ainda amadeirado: barro, ambar,
+                -- folhas e musgo no lugar de vermelho, azul e magenta.
+                contrast = "soft",
+                palette_overrides = {
+                    dark0_hard = "#2e2821",
+                    dark0 = "#342d24",
+                    dark0_soft = "#3a3328",
+                    dark1 = "#453c30",
+                    dark2 = "#53483a",
+                    dark3 = "#635646",
+                    dark4 = "#756653",
+                    bright_red = "#f28c38",
+                    neutral_red = "#d8752e",
+                    faded_red = "#a75d2a",
+                    bright_green = "#bdca58",
+                    neutral_green = "#96a542",
+                    faded_green = "#727d35",
+                    bright_yellow = "#edbd4f",
+                    neutral_yellow = "#c99738",
+                    faded_yellow = "#99732f",
+                    bright_blue = "#afbd55",
+                    neutral_blue = "#899944",
+                    faded_blue = "#687538",
+                    bright_purple = "#d2a442",
+                    neutral_purple = "#aa8234",
+                    faded_purple = "#80642f",
+                    bright_aqua = "#a9bc52",
+                    neutral_aqua = "#829743",
+                    faded_aqua = "#637439",
+                    bright_orange = "#ff9f3f",
+                    neutral_orange = "#dc792d",
+                    faded_orange = "#a85d29",
+                },
+                overrides = {
+                    ["@keyword.lua"] = { fg = "#f28c38", bold = true },
+                    ["@keyword.function.lua"] = { fg = "#ff9f3f", bold = true },
+                    ["@keyword.return.lua"] = { fg = "#ffb347", bold = true },
+                    ["@function.lua"] = { fg = "#c8d45b", bold = true },
+                    ["@function.call.lua"] = { fg = "#b8c653", bold = true },
+                    ["@function.builtin.lua"] = { fg = "#ffc15a" },
+                    ["@variable.parameter.lua"] = { fg = "#bdca58", italic = true },
+                    ["@variable.member.lua"] = { fg = "#96a542" },
+                    ["@type.lua"] = { fg = "#edbd4f" },
+                    ["@constructor.lua"] = { fg = "#d2a442" },
+                    ["@constant.lua"] = { fg = "#ffae42" },
+                    ["@number.lua"] = { fg = "#e9a23b" },
+                    ["@boolean.lua"] = { fg = "#ff8c32" },
+                    ["@operator.lua"] = { fg = "#e0832f" },
+                    ["@string.lua"] = { fg = "#a9b94f", italic = true },
+                },
+            })
             vim.cmd.colorscheme("gruvbox")
         end,
     },
@@ -324,27 +377,32 @@ require("lazy").setup({
         lazy = false,
         build = ":TSUpdate",
         config = function()
-            local ok, configs = pcall(require, "nvim-treesitter.configs")
-            if not ok then
-                return
-            end
+            local treesitter = require("nvim-treesitter")
+            local languages = {
+                "lua",
+                "vim",
+                "c",
+                "python",
+                "vimdoc",
+                "json",
+                "yaml",
+                "markdown",
+                "markdown_inline",
+                "html",
+                "css",
+                "scss",
+                "javascript",
+            }
 
-            configs.setup({
-                ensure_installed = {
-                    "lua",
-                    "vim",
-                    "vimdoc",
-                    "json",
-                    "yaml",
-                    "markdown",
-                    "markdown_inline",
-                    "html",
-                    "css",
-                    "scss",
-                    "javascript",
-                },
-                highlight = { enable = true },
-                indent = { enable = true },
+            treesitter.install(languages)
+
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = languages,
+                callback = function(args)
+                    if pcall(vim.treesitter.start, args.buf) then
+                        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                    end
+                end,
             })
         end,
     },
@@ -360,6 +418,7 @@ require("lazy").setup({
         config = function()
             require("neo-tree").setup({
                 filesystem = {
+                    hijack_netrw_behavior = "disabled",
                     follow_current_file = { enabled = true },
                     filtered_items = {
                         visible = true,
@@ -419,6 +478,7 @@ require("lazy").setup({
 
     {
         "neovim/nvim-lspconfig",
+        dependencies = { "LuaCATS/love2d" },
         config = function()
             vim.lsp.config("lua_ls", {
                 cmd = { "lua-language-server" },
@@ -440,14 +500,27 @@ require("lazy").setup({
                         },
                         workspace = {
                             checkThirdParty = false,
-                            library = { vim.env.VIMRUNTIME, root },
+                            library = {
+                                vim.env.VIMRUNTIME,
+                                vim.fn.stdpath("data") .. "/lazy/love2d/library",
+                            },
                         },
                         telemetry = { enable = false },
                     },
                 },
             })
 
+            -- C/C++: usa clangd para diagnostics, hover, go-to-definition e
+            -- highlight semantico. Em projetos Makefile, `compile_commands.json`
+            -- pode ser gerado com `bear -- make` para o clangd enxergar flags.
+            vim.lsp.config("clangd", {
+                cmd = { "clangd" },
+                capabilities = vim.lsp.protocol.make_client_capabilities(),
+                root_markers = { "compile_commands.json", "compile_flags.txt", "Makefile", ".git" },
+            })
+
             vim.lsp.enable("lua_ls")
+            vim.lsp.enable("clangd")
 
             map("n", "gd", vim.lsp.buf.definition, "Go to definition")
             map("n", "gr", vim.lsp.buf.references, "References")
