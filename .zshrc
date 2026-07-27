@@ -25,6 +25,7 @@ path=(
 	"$HOME/bin"
 	"$HOME/.local/bin"
 	"$HOME/.local/share/gem/ruby/3.3.0/bin"
+	"$HOME/.spicetify"
 	$path
 )
 

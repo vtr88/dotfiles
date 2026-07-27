@@ -1,0 +1,23 @@
+/*
+ * Gruvwood
+ * Warm wood backgrounds, forest greens and bright orange accents.
+ */
+
+::selection {
+	background: #756653;
+	color: #fbf1c7;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #756653 !important;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+	outline-color: #ff9f3f !important;
+}
+
+button[data-testid="play-button"] {
+	box-shadow: 0 0 0 1px #edbd4f;
+}
