@@ -77,6 +77,29 @@ opt.path:append("**")
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin indent on")
 
+-- Ao iniciar com `nvim .`, usa o diretorio como raiz do projeto sem abrir
+-- automaticamente nem o netrw nem o Neo-tree. A arvore continua no F2.
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function(args)
+        if vim.fn.argc() ~= 1 then
+            return
+        end
+
+        local startup_path = vim.fn.fnamemodify(vim.fn.argv(0), ":p")
+
+        if vim.fn.isdirectory(startup_path) ~= 1 then
+            return
+        end
+
+        vim.cmd.cd(vim.fn.fnameescape(startup_path))
+        vim.cmd.enew()
+
+        if args.buf ~= vim.api.nvim_get_current_buf() and vim.api.nvim_buf_is_valid(args.buf) then
+            vim.api.nvim_buf_delete(args.buf, { force = true })
+        end
+    end,
+})
+
 -- ============================================================================
 -- Helpers pequenos
 -- ============================================================================
