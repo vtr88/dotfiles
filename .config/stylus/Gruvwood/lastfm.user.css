@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gruvwood — Last.fm
 @namespace      https://github.com/vtr88/dotfiles
-@version        1.0.3
+@version        1.1.1
 @description    Madeira escura, floresta e abóbora para o Last.fm.
 @author         vtr88
 @homepageURL    https://github.com/vtr88/dotfiles
@@ -111,11 +111,68 @@
 		box-shadow: inset 3px 0 #f28c38 !important;
 	}
 
+	.tab-container {
+		background-color: #453c30 !important;
+		color: #d5c4a1 !important;
+	}
+
+	.tab-container .selector {
+		background-color: #68772f !important;
+	}
+
+	.scrobble-stats,
+	.scrobble-stats-info,
+	.scrobble-stats-graph,
+	.user-dashboard-scrobble-stats,
+	.user-dashboard-scrobble-stats .user-dashboard-module-inner-wrap {
+		background-color: #342e25 !important;
+		border-color: #53483a !important;
+		color: #d5c4a1 !important;
+	}
+
+	.highcharts-background {
+		fill: #342e25 !important;
+		stroke: #342e25 !important;
+	}
+
+	.highcharts-series-0 path,
+	.highcharts-series-0 rect,
+	.highcharts-color-0 {
+		fill: #f28c38 !important;
+		stroke: #f28c38 !important;
+	}
+
+	.highcharts-series-1 path,
+	.highcharts-series-1 rect,
+	.highcharts-color-1 {
+		fill: #68772f !important;
+		stroke: #68772f !important;
+	}
+
 	.masthead,
 	.masthead-inner,
 	.player-bar,
 	.player-bar-v2 {
 		background-color: #241f1a !important;
+	}
+
+	.header--overview {
+		background-color: #342e25 !important;
+	}
+
+	.header--overview div:not(.header-background) {
+		background-color: transparent !important;
+	}
+
+	.header--overview .header-info-secondary,
+	.header--overview .header-metadata,
+	.header--overview .header-metadata-tnew {
+		background-color: #342e25 !important;
+	}
+
+	.header-metadata-display,
+	.header-metadata-tnew-display {
+		color: #bdca58 !important;
 	}
 
 	.card-bg,
@@ -150,9 +207,31 @@
 
 	.group-heading,
 	.sidebar-group-heading,
-	.pagination-page[aria-current],
-	.secondary-nav-item-link--active {
+	.pagination-page[aria-current] {
 		color: #bdca58 !important;
+	}
+
+	.secondary-nav-item-link--active {
+		color: #ff9f3f !important;
+	}
+
+	.secondary-nav-item-link--active::after {
+		background-color: #f28c38 !important;
+	}
+
+	.chartlist-row--now-scrobbling .chartlist-name,
+	.about-me-sidebar h3,
+	.about-me-sidebar h4 {
+		color: #ffb347 !important;
+	}
+
+	.about-me-sidebar a {
+		color: #bdca58 !important;
+	}
+
+	.about-me-sidebar a:hover,
+	.about-me-sidebar a:focus {
+		color: #ff9f3f !important;
 	}
 
 	a:hover,

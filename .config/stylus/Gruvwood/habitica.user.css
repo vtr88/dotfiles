@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gruvwood — Habitica
 @namespace      https://github.com/vtr88/dotfiles
-@version        1.0.3
+@version        1.0.4
 @description    Madeira, oliva e laranja para o Habitica, preservando as cores funcionais das tarefas.
 @author         vtr88
 @homepageURL    https://github.com/vtr88/dotfiles
@@ -188,6 +188,29 @@
 		background-color: #342e25 !important;
 		border-color: #53483a !important;
 		color: #d5c4a1 !important;
+	}
+
+	#app footer,
+	footer {
+		background-color: #342e25 !important;
+		border-top: 1px solid #53483a !important;
+		color: #a89984 !important;
+	}
+
+	#app footer h3,
+	footer h3 {
+		color: #d5c4a1 !important;
+	}
+
+	#app footer .hr,
+	footer .hr {
+		background-color: #53483a !important;
+	}
+
+	#app footer .social-circle,
+	footer .social-circle {
+		background-color: #453c30 !important;
+		fill: #bdca58 !important;
 	}
 
 	.popover-body,
