@@ -165,10 +165,10 @@ AUTOPICKUP_EXCEPTION="<magic lamp"
 OPTIONS=color, menucolors
 
 ########### BUC #############
-MENUCOLOR=" blessed "=cyan
+MENUCOLOR=" blessed "=blue
 MENUCOLOR=" uncursed "=green
 MENUCOLOR=" cursed "=orange
-MENUCOLOR=" holy "=brightcyan
+MENUCOLOR=" holy "=brightblue
 MENUCOLOR=" unholy "=orange
 
 ###### Colored Items ########
@@ -208,7 +208,7 @@ MENUCOLOR="black opal"=black
 
 ######## Equipment ##########
 MENUCOLOR=" \((being|wielded|weapon|at the ready)"=gray
-MENUCOLOR=" blessed (.*) \((being|wielded|weapon|at the ready)"=brightcyan
+MENUCOLOR=" blessed (.*) \((being|wielded|weapon|at the ready)"=brightblue
 MENUCOLOR=" uncursed (.*) \((being|wielded|weapon|at the ready)"=brightgreen
 MENUCOLOR=" cursed (.*) \((being|wielded|weapon|at the ready)"=red
 MENUCOLOR="\(lit\)"=yellow
