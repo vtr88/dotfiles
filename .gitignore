@@ -41,6 +41,8 @@ account.gpg
 .config/.task/*.tar.gz
 .config/tint2/result.txt
 .config/mutt/.mbsyncrc
+.config/newsboat/urls
+.config/irssi/config
 
 # Editor/session noise
 .viminfo

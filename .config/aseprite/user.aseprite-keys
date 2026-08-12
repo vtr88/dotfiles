@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<keyboard version="1">
+    <commands>
+        <key command="GotoPreviousFrame" shortcut="PgUp"/>
+        <key command="GotoNextFrame" shortcut="PgDn"/>
+    </commands>
+    <tools/>
+    <quicktools>
+        <key tool="eyedropper" shortcut="Alt" removed="true"/>
+        <key tool="eyedropper" shortcut="Super" removed="true"/>
+        <key tool="eyedropper" shortcut="Space"/>
+        <key tool="hand" shortcut="Space" removed="true"/>
+    </quicktools>
+    <actions/>
+    <wheel/>
+    <drag/>
+</keyboard>

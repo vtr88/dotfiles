@@ -1,0 +1,30 @@
+#!/bin/sh
+set -eu
+
+config=${1:-"$HOME/.config/Renoise/V3.5.4/Config.xml"}
+
+if pgrep -x renoise >/dev/null 2>&1; then
+    printf 'Close Renoise before applying desktop settings.\n' >&2
+    exit 1
+fi
+
+if [ ! -f "$config" ]; then
+    printf 'Renoise config not found: %s\n' "$config" >&2
+    exit 1
+fi
+
+for setting in UIScaleFactor WindowedMode ForceUsingSystemWindowDecorations; do
+    if ! grep -q "<$setting>" "$config"; then
+        printf 'Missing setting %s in %s\n' "$setting" "$config" >&2
+        exit 1
+    fi
+done
+
+backup="$config.before-desktop-settings"
+cp -a "$config" "$backup"
+sed -i \
+    -e 's#<UIScaleFactor>[^<]*</UIScaleFactor>#<UIScaleFactor>100%</UIScaleFactor>#' \
+    -e 's#<WindowedMode>[^<]*</WindowedMode>#<WindowedMode>true</WindowedMode>#' \
+    -e 's#<ForceUsingSystemWindowDecorations>[^<]*</ForceUsingSystemWindowDecorations>#<ForceUsingSystemWindowDecorations>true</ForceUsingSystemWindowDecorations>#' \
+    "$config"
+printf 'Updated %s (backup: %s)\n' "$config" "$backup"

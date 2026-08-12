@@ -7,6 +7,11 @@ backup_dir="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 sudo apt update
 sudo apt install --no-install-recommends \
     ca-certificates \
+    build-essential \
+    libcairo2-dev \
+    libcrypt-dev \
+    libfontconfig1-dev \
+    libfreetype-dev \
     chafa \
     cmatrix \
     curl \
@@ -21,7 +26,17 @@ sudo apt install --no-install-recommends \
     git \
     irssi \
     isync \
-    keynav \
+    libc6-dev \
+    libglib2.0-dev \
+    libimlib2-dev \
+    libx11-dev \
+    libxdo-dev \
+    libxext-dev \
+    libxft-dev \
+    libxinerama-dev \
+    libxrandr-dev \
+    libxrender-dev \
+    libxtst-dev \
     lbdb \
     lf \
     btop \
@@ -31,6 +46,8 @@ sudo apt install --no-install-recommends \
     newsboat \
     papirus-icon-theme \
     picom \
+    pipewire-jack \
+    pkg-config \
     policykit-1-gnome \
     python3-bs4 \
     python3-requests \
@@ -43,12 +60,23 @@ sudo apt install --no-install-recommends \
     x11-xserver-utils \
     xarchiver \
     xboard \
+    xclip \
     xdotool \
     xfce4-power-manager \
     xsettingsd \
+    xinit \
+    xorg \
     fzf \
     zoxide \
     zsh
+
+for package in aseprite chatgpt spotify-client; do
+    if apt-cache show "$package" >/dev/null 2>&1; then
+        sudo apt install --no-install-recommends "$package"
+    else
+        printf 'Optional package %s is unavailable; see README.md.\n' "$package"
+    fi
+done
 
 backup_target() {
     target=$1
@@ -125,12 +153,37 @@ install_firefox_theme() {
     cp -a "$repo_dir/.config/firefox-gruvwood/user.js" "$profile_dir/user.js"
 }
 
+install_desktop_tools() {
+    tools_dir=${SUCKLESS_DIR:-"$HOME/Documentos/c/suckless"}
+
+    if [ ! -d "$tools_dir/.git" ]; then
+        if [ -e "$tools_dir" ]; then
+            printf 'Cannot clone tools: %s exists and is not a Git repository.\n' "$tools_dir" >&2
+            exit 1
+        fi
+        mkdir -p "$(dirname "$tools_dir")"
+        git clone https://github.com/vtr88/suckless.git "$tools_dir"
+    fi
+
+    for tool in dmenu dwm slock slstatus st; do
+        if ! cmp -s "$tools_dir/$tool/config.h" "$tools_dir/$tool/config.def.h"; then
+            printf '%s config.h and config.def.h differ; refusing to build.\n' "$tool" >&2
+            exit 1
+        fi
+        make -C "$tools_dir/$tool" clean all
+        sudo make -C "$tools_dir/$tool" install
+    done
+
+    make -C "$tools_dir/keynav" clean all
+    sudo make -C "$tools_dir/keynav" PREFIX=/usr/local install
+}
+
 paths='
 .Xresources
 .xinitrc
 .zshrc
 .config/.task
-.config/aseprite/extensions/gruvwood-theme
+.config/aseprite
 .config/dunst
 .config/feh
 .config/git
@@ -143,8 +196,9 @@ paths='
 .config/mutt
 .config/newsboat
 .config/nvim
+.config/mpv
 .config/picom
-.config/Renoise/V3.5.4/Themes/Gruvwood.xrnc
+.config/Renoise
 .config/spicetify/Themes/Gruvwood
 .config/stylus/Gruvwood
 .config/tmux
@@ -159,6 +213,7 @@ for path in $paths; do
 done
 
 install_firefox_theme
+install_desktop_tools
 
 aseprite_ini=$HOME/.config/aseprite/aseprite.ini
 if [ -f "$aseprite_ini" ]; then
@@ -167,7 +222,10 @@ fi
 
 chmod +x "$HOME/.xinitrc" "$HOME/.config/greek.sh" || true
 chmod +x "$HOME/.config/lf/preview" "$HOME/.config/lf/cleaner" "$HOME/.config/lf/lfub" || true
+chmod +x "$HOME/.config/Renoise/apply-desktop-settings" || true
 
 printf '\nInstalled dotfiles into %s\n' "$HOME"
 printf 'Backups, if any, were written to %s\n' "$backup_dir"
-printf 'Mail sync credentials are intentionally not tracked. Restore private mbsync config locally after install.\n'
+printf 'Private mail, Newsboat and Irssi credentials are not tracked. Restore them locally after install.\n'
+printf 'Close Renoise, then run ~/.config/Renoise/apply-desktop-settings after its first launch.\n'
+printf 'Optional proprietary applications may require the external APT sources documented in README.md.\n'
