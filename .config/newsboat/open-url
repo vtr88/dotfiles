@@ -61,9 +61,9 @@ case "$url" in
 		exec setsid -f mpv --no-fullscreen --geometry=640x480 --ytdl-format="$mpv_ytdl_format" --script-opts=ytdl_hook-ytdl_path=yt-dlp "$url"
 		;;
 	*patreon.com*/posts/*)
-		download_patreon_audio || exec firefox-esr "$url"
+		download_patreon_audio || exec /usr/local/bin/surf-open "$url"
 		;;
 	*)
-		exec firefox-esr "$url"
+		exec /usr/local/bin/surf-open "$url"
 		;;
 esac
